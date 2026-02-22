@@ -56,13 +56,16 @@ export default function ClinicHeader(): JSX.Element {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`relative text-[15px] font-semibold transition-colors ${
-                    isEmergency
-                      ? "text-red-600"
-                      : isActive
-                        ? "text-primary"
-                        : "text-slate-500 hover:text-primary"
-                  }`}
+                  className={`relative text-[15px] font-semibold 
+  transition-opacity duration-300 ease-in-out
+  active:scale-95
+  ${
+    isEmergency
+      ? "text-red-600"
+      : isActive
+        ? "text-primary"
+        : "text-slate-500 hover:text-primary"
+  }`}
                 >
                   {item.label}
                   {isActive && !isEmergency && (
