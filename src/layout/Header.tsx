@@ -57,7 +57,7 @@ export default function ClinicHeader(): JSX.Element {
                   key={item.href}
                   href={item.href}
                   className={`relative text-[15px] font-semibold 
-  transition-opacity duration-300 ease-in-out
+  transition-all duration-300 ease-in-out 
   active:scale-95
   ${
     isEmergency
