@@ -1,39 +1,24 @@
-"use client";
+// app/page.tsx
 
-import ClinicMap from "@/src/shared/ClinicMap";
-import VideoHero from "@/src/components/Hero/VideoHero";
-import HeroVideoBg from "@/src/components/Hero/HeroVideoBg";
 import HeroContent from "@/src/components/Hero/HeroContent";
+import HeroTrustCard from "@/src/components/Hero/HeroTrustCard";
+import HeroVideoBg from "@/src/components/Hero/HeroVideoBg";
 
-export default function Home() {
+export default function Page() {
   return (
-    <main className="min-h-screen bg-[#f8fafc]">
-      {/* Hero Section */}
-      <div className="hero mt-9">
-        <HeroVideoBg />
-        <HeroContent />
-      </div>
-      {/* <VideoHero
-        title="Modern Surgery. Compassionate Care."
-        subtitle="Bihar's leading multispecialty clinic with world-class diagnostics and 24/7 trauma support."
-      /> */}
-      {/* Underway Status Cards */}
-      <ClinicMap />
-      {/* Mobile-Only Info Placeholder */}
-      <section className="md:hidden px-6 py-12 text-center pb-32">
-        <div className="p-6 bg-primary rounded-3xl text-white">
-          <h4 className="font-bold mb-2">Download our Mobile Lite app</h4>
-          <p className="text-sm opacity-80 mb-4">
-            Fastest way to book appointments in Bihar.
-          </p>
-          <button className="bg-white text-primary px-6 py-2 rounded-xl font-bold text-sm">
-            Coming Soon
-          </button>
-        </div>
-      </section>
+    <section className="relative w-full h-[80vh] md:h-[90vh] flex items-center overflow-hidden bg-slate-900">
+      <HeroVideoBg />
+      <HeroContent />
 
-      {/* Safe bottom spacer for fixed nav */}
-      <div className="h-20 md:hidden" />
-    </main>
+      {/* New Component positioned right-bottom */}
+      <div className="hidden lg:block">
+        <HeroTrustCard />
+      </div>
+
+      {/* Mobile version (optional: show smaller or different position) */}
+      <div className="lg:hidden absolute bottom-24 right-4">
+        {/* You can render a simplified version here for mobile */}
+      </div>
+    </section>
   );
 }
