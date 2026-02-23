@@ -47,3 +47,17 @@ body {
     -apple-system,
     sans-serif;
 }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade {
+  animation: fadeIn 0.35s ease-out;
+}

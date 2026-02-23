@@ -16,7 +16,7 @@ export default function HeroTrustCard() {
   ];
 
   return (
-    <div className="absolute bottom-10 right-6 md:right-12 z-30 max-w-[280px] animate-in fade-in zoom-in slide-in-from-right-12 duration-1000 delay-1000">
+    <div className="absolute bottom-10 right-6 md:right-12 z-30 max-w-70 animate-in fade-in zoom-in slide-in-from-right-12 duration-1000 delay-1000">
       {/* Light Glassmorphism Container */}
       <div className="bg-white/80 backdrop-blur-xl border border-white/40 p-5 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
         {/* Success Rate Header */}
@@ -41,7 +41,7 @@ export default function HeroTrustCard() {
             </div>
           </div>
           <div>
-            <div className="flex items-center gap-1 text-secondary animate-in fade-in slide-in-from-left-4 duration-700 delay-[1200ms]">
+            <div className="flex items-center gap-1 text-secondary animate-in fade-in slide-in-from-left-4 duration-700 delay-1200">
               <CheckCircle2
                 size={14}
                 fill="currentColor"
@@ -51,7 +51,7 @@ export default function HeroTrustCard() {
                 99% Success
               </span>
             </div>
-            <p className="text-[9px] text-slate-500 font-bold uppercase tracking-[0.1em] mt-0.5">
+            <p className="text-[9px] text-slate-500 font-bold uppercase tracking-widest mt-0.5">
               Patient Recovery Rate
             </p>
           </div>
@@ -62,7 +62,7 @@ export default function HeroTrustCard() {
           {badges.map((badge, i) => (
             <div
               key={badge.text}
-              className="flex items-center gap-3 bg-slate-900/[0.03] border border-slate-900/5 px-3 py-2 rounded-2xl transition-all hover:bg-white hover:shadow-md hover:scale-[1.02] group cursor-default animate-in fade-in slide-in-from-bottom-3 fill-mode-both"
+              className="flex items-center gap-3 bg-slate-900/3 border border-slate-900/5 px-3 py-2 rounded-2xl transition-all hover:bg-white hover:shadow-md hover:scale-[1.02] group cursor-default animate-in fade-in slide-in-from-bottom-3 fill-mode-both"
               style={{ animationDelay: `${1400 + i * 150}ms` }}
             >
               <div className="text-primary group-hover:scale-110 transition-transform duration-300">
