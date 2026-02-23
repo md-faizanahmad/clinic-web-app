@@ -16,7 +16,7 @@ export default function Page() {
       </div>
 
       {/* Mobile version (optional: show smaller or different position) */}
-      <div className="lg:hidden absolute bottom-24 right-4">
+      <div className="lg:hidden absolute bottom-14 right-4">
         {/* You can render a simplified version here for mobile */}
       </div>
     </section>
