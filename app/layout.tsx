@@ -1,8 +1,5 @@
-"use client";
-
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
 
 import "./globals.css";
@@ -31,8 +28,6 @@ export default function RootLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  const pathname = usePathname();
-
   return (
     <html lang="en">
       <body
@@ -41,9 +36,7 @@ export default function RootLayout({
         <Header />
 
         {/* Page Transition Wrapper */}
-        <main key={pathname} className="grow animate-fade">
-          {children}
-        </main>
+        <main className="grow animate-fade">{children}</main>
 
         <ContactDock />
         <Footer />
