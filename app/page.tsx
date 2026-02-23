@@ -10,6 +10,7 @@ import {
   ShieldCheck,
   Activity,
 } from "lucide-react";
+import ClinicMap from "@/src/shared/ClickMap";
 
 export default function Home() {
   return (
@@ -59,66 +60,7 @@ export default function Home() {
       </section>
 
       {/* Underway Status Cards */}
-      <section className="px-6 py-12 bg-white border-y border-slate-100">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Card 1 */}
-            <div className="p-8 rounded-3xl bg-[#f8fafc] border border-slate-100 space-y-4">
-              <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
-                <Stethoscope size={24} />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900">
-                Expert Doctors
-              </h3>
-              <p className="text-sm text-slate-500 leading-relaxed">
-                Connect with the best specialists in Patna. Our verification
-                process ensures top-tier medical advice.
-              </p>
-              <div className="pt-2 flex items-center gap-2 text-xs font-bold text-primary">
-                <Clock size={14} />
-                UPDATING DATABASE...
-              </div>
-            </div>
-
-            {/* Card 2 */}
-            <div className="p-8 rounded-3xl bg-[#f8fafc] border border-slate-100 space-y-4">
-              <div className="w-12 h-12 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary">
-                <Activity size={24} />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900">
-                Instant Reports
-              </h3>
-              <p className="text-sm text-slate-500 leading-relaxed">
-                Access your laboratory results and medical history directly on
-                your mobile device.
-              </p>
-              <div className="pt-2 flex items-center gap-2 text-xs font-bold text-secondary">
-                <ShieldCheck size={14} />
-                ENCRYPTION ACTIVE
-              </div>
-            </div>
-
-            {/* Card 3 - Bihar Emergency */}
-            <div className="p-8 rounded-3xl bg-red-50 border border-red-100 space-y-4">
-              <div className="w-12 h-12 bg-red-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-red-200">
-                <ShieldCheck size={24} />
-              </div>
-              <h3 className="text-xl font-bold text-red-900">Emergency 24/7</h3>
-              <p className="text-sm text-red-700/70 leading-relaxed">
-                Critical care and ambulance services are always active,
-                regardless of portal updates.
-              </p>
-              <Link
-                href="tel:102"
-                className="pt-2 flex items-center gap-2 text-xs font-black text-red-600 hover:underline"
-              >
-                CALL 102 NOW <ArrowRight size={14} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <ClinicMap />
       {/* Mobile-Only Info Placeholder */}
       <section className="md:hidden px-6 py-12 text-center pb-32">
         <div className="p-6 bg-primary rounded-3xl text-white">

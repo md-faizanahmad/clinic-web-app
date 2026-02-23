@@ -34,7 +34,7 @@ export default function ContactDock() {
   ];
 
   return (
-    <div className="fixed right-4 bottom-24 md:bottom-auto md:top-100 md:-translate-y-1/2 z-[60] flex flex-col items-end gap-3 group">
+    <div className="fixed right-4 bottom-24 md:bottom-13 md:-translate-y-1/2 z-60 flex flex-col items-end gap-3 group">
       {/* Expanded Menu */}
       <div
         className={`flex flex-col gap-3 transition-all duration-300 origin-bottom ${
@@ -68,7 +68,7 @@ export default function ContactDock() {
         onClick={() => setIsOpen(!isOpen)}
         className={`${
           isOpen ? "bg-slate-800 rotate-45" : "bg-primary"
-        } text-white p-4 rounded-[2rem] shadow-2xl shadow-primary/40 transition-all duration-300 hover:scale-105 active:scale-95`}
+        } text-white p-4 rounded-4xl shadow-2xl shadow-primary/40 transition-all duration-300 hover:scale-105 active:scale-95`}
       >
         {isOpen ? <X size={28} /> : <Plus size={28} />}
       </button>
