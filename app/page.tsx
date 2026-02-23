@@ -10,7 +10,7 @@ import {
   ShieldCheck,
   Activity,
 } from "lucide-react";
-import ClinicMap from "@/src/shared/ClickMap";
+import ClinicMap from "@/src/shared/ClinicMap";
 
 export default function Home() {
   return (

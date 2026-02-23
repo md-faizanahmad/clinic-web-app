@@ -1,6 +1,13 @@
 "use client";
 
-import { MessageCircle, Phone, Mail, Instagram, Plus, X } from "lucide-react";
+import {
+  MessageSquareMore,
+  PhoneCall,
+  MailWarning,
+  Instagram,
+  Plus,
+  X,
+} from "lucide-react";
 import { useState } from "react";
 
 export default function ContactDock() {
@@ -9,53 +16,53 @@ export default function ContactDock() {
   const contacts = [
     {
       label: "WhatsApp",
-      icon: <MessageCircle size={22} />,
+      icon: <MessageSquareMore size={20} />,
       href: "https://wa.me/9170040XXXXX",
       color: "bg-[#25D366]",
+      delay: "delay-[0ms]",
     },
     {
       label: "Call Us",
-      icon: <Phone size={22} />,
+      icon: <PhoneCall size={20} />,
       href: "tel:+9170040XXXXX",
-      color: "bg-primary", // Your Medical Blue
+      color: "bg-primary",
+      delay: "delay-[75ms]",
     },
     {
       label: "Email",
-      icon: <Mail size={22} />,
+      icon: <MailWarning size={20} />,
       href: "mailto:support@cliniccare.com",
-      color: "bg-secondary", // Your Teal
+      color: "bg-secondary",
+      delay: "delay-[150ms]",
     },
     {
       label: "Instagram",
-      icon: <Instagram size={22} />,
+      icon: <Instagram size={20} />,
       href: "https://instagram.com/cliniccare_bihar",
       color: "bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]",
+      delay: "delay-[225ms]",
     },
   ];
 
   return (
-    <div className="fixed right-4 bottom-24 md:bottom-13 md:-translate-y-1/2 z-60 flex flex-col items-end gap-3 group">
-      {/* Expanded Menu */}
-      <div
-        className={`flex flex-col gap-3 transition-all duration-300 origin-bottom ${
-          isOpen
-            ? "scale-100 opacity-100"
-            : "scale-0 opacity-0 pointer-events-none"
-        }`}
-      >
+    <div className="fixed right-5 bottom-24 md:bottom-8 z-100 flex flex-col items-end gap-4 antialiased">
+      {/* Staggered Expanded Menu */}
+      <div className="flex flex-col gap-3 mb-2">
         {contacts.map((contact) => (
           <div
             key={contact.label}
-            className="flex items-center gap-3 group/item"
+            className={`flex items-center gap-3 transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
+              isOpen
+                ? `opacity-100 translate-y-0 scale-100 ${contact.delay}`
+                : "opacity-0 translate-y-10 scale-50 pointer-events-none"
+            }`}
           >
-            <span className="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-bold shadow-sm border border-border opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap">
+            <span className="bg-white/95 backdrop-blur px-2.5 py-1 rounded-md text-[10px] font-black uppercase tracking-widest text-slate-600 shadow-sm border border-slate-100">
               {contact.label}
             </span>
             <a
               href={contact.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${contact.color} text-white p-3 rounded-2xl shadow-lg hover:scale-110 active:scale-90 transition-transform`}
+              className={`${contact.color} text-white w-8 h-8 flex items-center justify-center rounded-xl shadow-lg hover:brightness-110 active:scale-90 transition-all`}
             >
               {contact.icon}
             </a>
@@ -66,11 +73,24 @@ export default function ContactDock() {
       {/* Main Trigger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`${
-          isOpen ? "bg-slate-800 rotate-45" : "bg-primary"
-        } text-white p-4 rounded-4xl shadow-2xl shadow-primary/40 transition-all duration-300 hover:scale-105 active:scale-95`}
+        className={`relative w-12 cursor-pointer h-12 flex items-center justify-center rounded-2xl shadow-xl transition-all duration-500 ease-in-out group ${
+          isOpen ? "bg-slate-900 rotate-135" : "bg-primary"
+        }`}
       >
-        {isOpen ? <X size={28} /> : <Plus size={28} />}
+        <div
+          className={`transition-transform duration-300 ${!isOpen ? "translate-y-1" : "translate-y-0"}`}
+        >
+          {isOpen ? (
+            <X size={20} className="text-white" />
+          ) : (
+            <Plus size={20} className="text-white mb-2" />
+          )}
+        </div>
+
+        {/* Pulse effect when closed */}
+        {!isOpen && (
+          <span className="absolute inset-0 rounded-2xl bg-primary animate-ping opacity-20 pointer-events-none" />
+        )}
       </button>
     </div>
   );
