@@ -38,7 +38,7 @@ export default function ClinicMap() {
         </div>
 
         {/* Map Frame: Height adjusted to 70 (mobile) and 80 (desktop) */}
-        <div className="relative w-full overflow-hidden rounded-[2rem] group">
+        <div className="relative w-full overflow-hidden rounded-4xl group">
           <iframe
             src={mapSrc}
             className="w-full h-70 md:h-80 grayscale-[0.3] contrast-[1.1] transition-all duration-700 group-hover:grayscale-0"
@@ -49,7 +49,7 @@ export default function ClinicMap() {
           ></iframe>
 
           {/* Subtle Blend: Soft edges to feel more integrated */}
-          <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-black/5 rounded-[2rem]" />
+          <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-black/5 rounded-4xl" />
 
           {/* Mobile Overlay */}
           <div className="absolute bottom-3 right-3 md:hidden">

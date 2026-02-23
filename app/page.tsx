@@ -1,15 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import {
-  Construction,
-  Clock,
-  Stethoscope,
-  CalendarCheck,
-  ArrowRight,
-  ShieldCheck,
-  Activity,
-} from "lucide-react";
+import { Construction, CalendarCheck, ArrowRight } from "lucide-react";
 import ClinicMap from "@/src/shared/ClinicMap";
 
 export default function Home() {
