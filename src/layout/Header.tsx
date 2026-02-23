@@ -32,19 +32,29 @@ export default function ClinicHeader(): JSX.Element {
 
   return (
     <>
-      {/* Desktop Header */}
-      <header className="hidden md:block sticky top-0 z-50 w-full bg-white border-b border-border backdrop-blur">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="bg-primary p-2 rounded-xl shadow-md">
-              <Activity className="text-white" size={22} />
+      {/* --- DESKTOP HEADER (Optimized for speed) --- */}
+      <header className="hidden md:block sticky top-0 z-50 w-full bg-white/95 border-b border-border backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-6 h-18 flex items-center justify-between">
+          {/* Logo with slight lift */}
+          <Link
+            href="/"
+            className="flex items-center gap-2.5 group transition-transform active:scale-95"
+          >
+            <div className="bg-primary p-2 rounded-xl shadow-sm group-hover:shadow-primary/20 group-hover:shadow-md transition-all">
+              <Activity className="text-white" size={20} />
             </div>
-            <span className="text-2xl font-bold tracking-tight">
-              Clinic<span className="text-secondary">Care</span>
-            </span>
+            <div className="flex flex-col">
+              <span className="text-xl font-black leading-none tracking-tight text-slate-900">
+                Clinic<span className="text-primary">Care</span>
+              </span>
+              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">
+                Bihar Health
+              </span>
+            </div>
           </Link>
 
-          <nav className="flex items-center gap-10">
+          {/* Clean Desktop Nav */}
+          <nav className="flex items-center gap-1">
             {navItems.map((item) => {
               const isActive =
                 item.href === "/"
@@ -56,54 +66,56 @@ export default function ClinicHeader(): JSX.Element {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`relative text-[15px] font-semibold 
-  transition-all duration-300 ease-in-out 
-  active:scale-95
-  ${
-    isEmergency
-      ? "text-red-600"
-      : isActive
-        ? "text-primary"
-        : "text-slate-500 hover:text-primary"
-  }`}
+                  className={`px-4 py-2 rounded-lg text-sm font-bold transition-all relative group
+                  ${
+                    isEmergency
+                      ? "text-red-600 hover:bg-red-50"
+                      : isActive
+                        ? "text-primary bg-primary/5"
+                        : "text-slate-500 hover:text-slate-900 hover:bg-slate-50"
+                  }`}
                 >
                   {item.label}
                   {isActive && !isEmergency && (
-                    <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary rounded-full" />
+                    <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-primary rounded-full animate-in fade-in zoom-in duration-300" />
                   )}
                 </Link>
               );
             })}
           </nav>
 
+          {/* Action Button */}
           <Link
             href="/book"
-            className="bg-primary text-white px-6 py-3 rounded-full text-sm font-bold hover:opacity-90 transition-all shadow-lg active:scale-95 flex items-center gap-2"
+            className="bg-primary text-white px-5 py-2.5 rounded-xl text-sm font-black hover:bg-blue-700 transition-all shadow-md hover:shadow-lg active:scale-95 flex items-center gap-2"
           >
-            <CalendarPlus size={18} />
-            Book Appointment
+            <CalendarPlus size={16} strokeWidth={2.5} />
+            Book Now
           </Link>
         </div>
       </header>
 
-      {/* Mobile Top Header */}
-      <header className="md:hidden sticky top-0 z-50 w-full bg-white px-4 h-16 flex items-center justify-between border-b border-border">
+      {/* --- MOBILE TOP HEADER --- */}
+      <header className="md:hidden sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md px-4 h-14 flex items-center justify-between border-b border-slate-100">
         <div className="flex items-center gap-2">
-          <Activity className="text-primary" size={20} />
-          <span className="font-bold text-lg">ClinicCare</span>
+          <Activity className="text-primary" size={18} />
+          <span className="font-black text-base tracking-tighter text-slate-900">
+            ClinicCare
+          </span>
         </div>
 
-        <Link
-          href="tel:911"
-          className="bg-red-50 text-red-600 px-3 py-2 rounded-lg flex items-center gap-2 text-xs font-bold border border-red-100"
+        {/* Real tel: link for emergency */}
+        <a
+          href="tel:102"
+          className="bg-red-600 text-white px-3 py-1.5 rounded-lg flex items-center gap-2 text-[11px] font-black uppercase tracking-tight shadow-sm active:scale-90 transition-transform"
         >
-          <PhoneCall size={14} />
+          <PhoneCall size={12} fill="currentColor" />
           Emergency
-        </Link>
+        </a>
       </header>
 
-      {/* Mobile Bottom Nav - App Style */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-border h-20">
+      {/* --- MOBILE BOTTOM NAV (Your Perfect Logic Kept) --- */}
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-slate-100 h-18 pb-safe">
         <div className="flex justify-around items-center h-full px-1 relative">
           {navItems.map((item) => {
             const Icon = item.icon;
@@ -117,21 +129,21 @@ export default function ClinicHeader(): JSX.Element {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`flex flex-col items-center justify-center flex-1 transition-all duration-300 ${
-                  isActive ? "-mt-13" : "mt-0"
+                className={`flex flex-col items-center justify-center flex-1 transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
+                  isActive ? "-mt-10" : "mt-0"
                 }`}
               >
                 <div
-                  className={`p-3 rounded-full transition-all duration-300 shadow-sm ${
+                  className={`p-3 rounded-full transition-all duration-500 ${
                     isActive
-                      ? `${isEmergency ? "bg-red-600" : "bg-primary"} text-white shadow-lg border-4 border-[#f8fafc]`
+                      ? `${isEmergency ? "bg-red-600" : "bg-primary"} text-white shadow-xl border-4 border-[#f8fafc] scale-110`
                       : "bg-transparent text-slate-400"
                   }`}
                 >
-                  <Icon size={24} strokeWidth={isActive ? 2.5 : 2} />
+                  <Icon size={22} strokeWidth={isActive ? 2.5 : 2} />
                 </div>
                 <span
-                  className={`text-[10px] mt-1 font-bold transition-colors ${
+                  className={`text-[9px] mt-1 font-black uppercase tracking-tighter transition-colors ${
                     isActive
                       ? isEmergency
                         ? "text-red-600"
@@ -145,22 +157,22 @@ export default function ClinicHeader(): JSX.Element {
             );
           })}
 
-          {/* Special Booking Button (Static Round Up) */}
+          {/* Book Action */}
           <Link
             href="/book"
-            className={`flex flex-col items-center justify-center flex-1 transition-all duration-300 ${
-              pathname === "/book" ? "-mt-13" : "mt-0"
+            className={`flex flex-col items-center justify-center flex-1 transition-all duration-500 ${
+              pathname === "/book" ? "-mt-10" : "mt-0"
             }`}
           >
             <div
-              className={`p-3 rounded-full shadow-lg border-4 border-[#f8fafc] transition-all ${
+              className={`p-3 rounded-full shadow-lg border-4 border-[#f8fafc] transition-all duration-500 ${
                 pathname === "/book" ? "bg-primary scale-110" : "bg-secondary"
               }`}
             >
-              <CalendarPlus className="text-white" size={24} />
+              <CalendarPlus className="text-white" size={22} />
             </div>
             <span
-              className={`text-[10px] mt-1 font-bold ${
+              className={`text-[9px] mt-1 font-black uppercase tracking-tighter ${
                 pathname === "/book" ? "text-primary" : "text-secondary"
               }`}
             >
@@ -170,8 +182,8 @@ export default function ClinicHeader(): JSX.Element {
         </div>
       </nav>
 
-      {/* Spacer to prevent content from hiding behind the fixed bottom nav */}
-      <div className="h-20 md:hidden" />
+      {/* Spacer */}
+      <div className="h-18 md:hidden" />
     </>
   );
 }

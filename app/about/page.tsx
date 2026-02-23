@@ -11,8 +11,6 @@ import {
 } from "lucide-react";
 
 export default function AboutPage() {
-  const currentYear = new Date().getFullYear();
-
   return (
     <main className="min-h-screen bg-[#f8fafc] antialiased">
       {/* --- Section 1: Hero & Vision --- */}
