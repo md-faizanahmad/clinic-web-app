@@ -2,15 +2,21 @@
 
 import ClinicMap from "@/src/shared/ClinicMap";
 import VideoHero from "@/src/components/Hero/VideoHero";
+import HeroVideoBg from "@/src/components/Hero/HeroVideoBg";
+import HeroContent from "@/src/components/Hero/HeroContent";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#f8fafc]">
       {/* Hero Section */}
-      <VideoHero
+      <div className="hero mt-9">
+        <HeroVideoBg />
+        <HeroContent />
+      </div>
+      {/* <VideoHero
         title="Modern Surgery. Compassionate Care."
         subtitle="Bihar's leading multispecialty clinic with world-class diagnostics and 24/7 trauma support."
-      />
+      /> */}
       {/* Underway Status Cards */}
       <ClinicMap />
       {/* Mobile-Only Info Placeholder */}

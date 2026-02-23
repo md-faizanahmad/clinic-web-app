@@ -33,7 +33,7 @@ export default function ClinicHeader(): JSX.Element {
   return (
     <>
       {/* --- DESKTOP HEADER (Optimized for speed) --- */}
-      <header className="hidden md:block sticky top-0 z-50 w-full bg-white/95 border-b border-border backdrop-blur-sm">
+      <header className="hidden md:block sticky top-0 z-50 w-full bg-white/45 border-b border-border backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6 h-18 flex items-center justify-between">
           {/* Logo with slight lift */}
           <Link
