@@ -41,7 +41,7 @@ export default function RootLayout({
         <Header />
 
         {/* Page Transition Wrapper */}
-        <main key={pathname} className="flex-grow animate-fade">
+        <main key={pathname} className="grow animate-fade">
           {children}
         </main>
 
