@@ -64,7 +64,7 @@ export default function ServiceGrid() {
             <Link
               key={service.title}
               href={service.href}
-              className="group bg-white p-6 rounded-[2rem] border border-slate-100 hover:border-primary/20 transition-all duration-300 active:scale-[0.98]"
+              className="group bg-white p-6 rounded-4xl border border-slate-100 hover:border-primary/20 transition-all duration-300 active:scale-[0.98]"
             >
               <div className="flex flex-col h-full space-y-4">
                 {/* Compact Icon */}

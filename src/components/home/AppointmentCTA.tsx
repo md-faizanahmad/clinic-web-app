@@ -21,7 +21,7 @@ export default function AppointmentCTA() {
             className="object-cover opacity-40 grayscale-[0.2]"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent md:to-slate-950/20" />
+          <div className="absolute inset-0 bg-linear-to-r from-slate-950 via-slate-950/80 to-transparent md:to-slate-950/20" />
         </div>
 
         <div className="relative z-10 grid md:grid-cols-2 gap-12 p-8 md:p-16 items-center">

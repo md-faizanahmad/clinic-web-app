@@ -27,7 +27,7 @@ export default function AboutClinic() {
         {/* Left Side: Visual Trust */}
         <div className="relative group">
           {/* Main Image - Replace with your actual clinic photo */}
-          <div className="relative aspect-[4/5] md:aspect-square w-full overflow-hidden rounded-[3rem] shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]">
+          <div className="relative aspect-4/5 md:aspect-square w-full overflow-hidden rounded-[3rem] shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]">
             <Image
               src="/doctors.png"
               alt="Modern Clinic Environment"
@@ -36,7 +36,7 @@ export default function AboutClinic() {
               sizes="(max-width: 768px) 100vw, 50vw"
             />
             {/* Dark Overlay for branding lift */}
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-60" />
+            <div className="absolute inset-0 bg-linear-to-t from-slate-900/60 to-transparent opacity-60" />
           </div>
 
           {/* Floating Badge over image */}

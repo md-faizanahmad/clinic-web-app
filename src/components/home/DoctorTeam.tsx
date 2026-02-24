@@ -61,7 +61,7 @@ export default function DoctorTeam() {
               className="group bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500"
             >
               {/* Image Area */}
-              <div className="relative aspect-[4/5] w-full overflow-hidden">
+              <div className="relative aspect-4/5 w-full overflow-hidden">
                 <Image
                   src={doc.img}
                   alt={doc.name}
