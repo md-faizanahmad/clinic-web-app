@@ -9,7 +9,7 @@ export default function HeroVideoBg() {
         loop
         muted
         playsInline
-        poster="/videos/hero-poster.jpg" // Good for slow networks
+        poster="/videos/hero-poster.png" // Good for slow networks
         className="w-full h-full object-cover opacity-60 transition-opacity duration-1000"
       >
         <source src="/videos/clinic-hero.mp4" type="video/mp4" />
