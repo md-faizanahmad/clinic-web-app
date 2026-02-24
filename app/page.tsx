@@ -1,6 +1,9 @@
 // app/page.tsx
 
 import Hero from "@/src/components/Hero/Hero";
+import AboutClinic from "@/src/components/home/AboutClinic";
+import DoctorTeam from "@/src/components/home/DoctorTeam";
+import ServiceGrid from "@/src/components/ServiceGrid";
 import TrustIndicators from "@/src/shared/TrustIndicators";
 
 export default function Page() {
@@ -8,6 +11,9 @@ export default function Page() {
     <section>
       <Hero />
       <TrustIndicators />
+      <ServiceGrid />
+      <AboutClinic />
+      <DoctorTeam />
     </section>
   );
 }
