@@ -1,6 +1,12 @@
 // components/HeroContent.tsx
 import Link from "next/link";
-import { CalendarCheck, ChevronRight, Activity, Sparkles } from "lucide-react";
+import {
+  CalendarCheck,
+  ChevronRight,
+  Activity,
+  Sparkles,
+  Phone,
+} from "lucide-react";
 
 export default function HeroContent() {
   return (
@@ -47,11 +53,11 @@ export default function HeroContent() {
           </Link>
 
           <Link
-            href="/services"
+            href="#"
             className="group bg-white/10 backdrop-blur-md text-white border-2 border-white/20 px-10 py-5 rounded-4xl font-black text-sm hover:bg-white/20 hover:border-white/40 transition-all duration-300 flex items-center justify-center gap-2"
           >
-            Explore Services
-            <ChevronRight
+            Call Now
+            <Phone
               size={20}
               className="group-hover:translate-x-1 transition-transform"
             />
