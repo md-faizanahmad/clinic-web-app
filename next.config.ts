@@ -18,6 +18,11 @@ const nextConfig: NextConfig = {
         hostname: "i.pravatar.cc", // Useful for logos/flags
         pathname: "**",
       },
+{
+        protocol: "https",
+        hostname: "cloudinary.com",
+        pathname: "**",
+      },
     ],
   },
 };
