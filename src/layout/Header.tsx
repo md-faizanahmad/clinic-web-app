@@ -29,7 +29,8 @@ const navItems: NavItem[] = [
 
 export default function ClinicHeader(): JSX.Element {
   const pathname = usePathname();
-  const logoUrl = "https://res.cloudinary.com/dyefyrszz/image/upload/v1771937195/1771937091315_snxchi.png";
+  const logoUrl =
+    "https://res.cloudinary.com/dyefyrszz/image/upload/v1771937195/1771937091315_snxchi.png";
 
   return (
     <>
@@ -41,23 +42,23 @@ export default function ClinicHeader(): JSX.Element {
             href="/"
             className="flex items-center gap-3 group transition-transform active:scale-95"
           >
-            <div className="relative w-10 h-10 overflow-hidden rounded-xl shadow-sm group-hover:shadow-primary/20 transition-all">
-              <Image 
-                src={logoUrl} 
-                alt="ClinicCare Logo" 
-                fill 
-                className="object-contain p-1"
+            <div className="relative w-15 h-15 overflow-hidden  group-hover:shadow-primary/20 transition-all">
+              <Image
+                src={logoUrl}
+                alt="ClinicCare Logo"
+                fill
+                className=" rounded-full object-fill"
                 priority
               />
             </div>
-            <div className="flex flex-col">
+            {/* <div className="flex flex-col">
               <span className="text-xl font-black leading-none tracking-tight text-slate-900">
                 Clinic<span className="text-primary">Care</span>
               </span>
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">
                 Bihar Health
               </span>
-            </div>
+            </div> */}
           </Link>
 
           {/* Clean Desktop Nav */}

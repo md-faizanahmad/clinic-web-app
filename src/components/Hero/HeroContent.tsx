@@ -5,7 +5,7 @@ import { CalendarCheck, ChevronRight, Activity, Sparkles } from "lucide-react";
 export default function HeroContent() {
   return (
     <div className="relative mt-4 z-10 max-w-7xl mx-auto px-6 w-full pt-20 md:pt-0">
-      <div className="max-w-4xl space-y-1">
+      <div className="max-w-4xl space-y-4">
         {/* 1. Ultra-Clean Glass Badge */}
         <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-xl border border-white/40 px-4 py-2 rounded-full text-white text-[11px] font-black uppercase tracking-[0.2em] shadow-xl animate-in fade-in zoom-in duration-700 ease-out">
           <Sparkles size={14} className="text-secondary animate-pulse" />
