@@ -10,7 +10,7 @@ export default function BookingDock() {
   return (
     <>
       {/* --- COMPACT FLOATING PILL (Mobile Only) --- */}
-      <div className="md:hidden fixed bottom-40 right-4 z-60">
+      <div className="md:hidden fixed bottom-40 right-4 z-99">
         <motion.button
           onClick={() => setIsOpen(true)}
           initial={{ scale: 0, rotate: -45 }}
@@ -27,7 +27,7 @@ export default function BookingDock() {
       {/* --- SLIM BOTTOM SHEET MODAL --- */}
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-100 flex items-end justify-center px-4 pb-6">
+          <div className="fixed inset-0 z-999 flex items-end justify-center px-4 pb-6">
             {/* Minimal Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
