@@ -1,84 +1,85 @@
 // components/HeroTrustCard.tsx
 import Image from "next/image";
-import { Activity, Zap, Clock, TrendingUp, HeartPulse } from "lucide-react";
+import { Activity, Zap, Clock, TrendingUp } from "lucide-react";
 
 export default function HeroTrustCard() {
   const avatars = [
     "https://i.pravatar.cc/100?img=11",
     "https://i.pravatar.cc/100?img=12",
     "https://i.pravatar.cc/100?img=13",
-    "https://i.pravatar.cc/100?img=14",
   ];
 
   const badges = [
-    { text: "Telehealth", icon: <Activity size={12} /> },
-    { text: "24/7 Support", icon: <Clock size={12} /> },
-    { text: "Instant Pay", icon: <Zap size={12} /> },
+    { text: "Telehealth", icon: <Activity size={10} /> },
+    { text: "24/7 Support", icon: <Clock size={10} /> },
+    { text: "Instant Pay", icon: <Zap size={10} /> },
   ];
 
   return (
-    /* Positioning: Centered on mobile with fixed width to prevent overflow */
-    <div className="absolute bottom-28 md:bottom-12 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-12 z-30 w-[90%] max-w-55 md:max-w-60 select-none animate-in fade-in zoom-in duration-1000">
-      <div className="relative overflow-hidden bg-white/70 backdrop-blur-2xl border border-white/50 p-4 rounded-[2.5rem] shadow-[0_15px_30px_rgba(0,0,0,0.1)]">
-        {/* BG ICON WATERMARK - Prevents card from looking empty without adding bulk */}
-        <HeartPulse
-          className="absolute -right-4 -bottom-4 text-primary/5 rotate-12"
-          size={120}
-        />
-
-        {/* 1. TOP MARQUEE AREA (Patients) */}
-        <div className="flex items-center justify-between mb-4 relative z-10">
-          <div className="flex items-center gap-2">
-            <div className="flex -space-x-2">
-              {avatars.map((url, i) => (
-                <div
-                  key={i}
-                  className="relative w-6 h-6 rounded-full border-2 border-white overflow-hidden"
-                >
-                  <Image src={url} alt="U" fill className="object-cover" />
-                </div>
-              ))}
+    <div className="absolute bottom-8 right-6 md:right-20 z-30 max-w-60 select-none">
+      <div className="bg-white/70 backdrop-blur-2xl border border-white/50 p-4 rounded-4xl shadow-[0_20px_40px_rgba(0,0,0,0.08)] animate-in fade-in zoom-in slide-in-from-right-8 duration-1000">
+        {/* Success Metric - Smaller & Cleaner */}
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex -space-x-2.5">
+            {avatars.map((url, i) => (
+              <div
+                key={i}
+                className="relative w-7 h-7 rounded-full border-2 border-white overflow-hidden shadow-sm"
+              >
+                <Image
+                  src={url}
+                  alt="User"
+                  fill
+                  sizes="28px"
+                  className="object-cover"
+                />
+              </div>
+            ))}
+            <div className="relative w-7 h-7 rounded-full border-2 border-white bg-slate-900 flex items-center justify-center text-[8px] font-black text-white">
+              +5k
             </div>
-            <span className="text-[10px] font-black text-slate-900">+5k</span>
           </div>
 
-          <div className="bg-green-500/10 px-2 py-0.5 rounded-full flex items-center gap-1">
+          <div className="flex items-center gap-1.5 bg-green-500/10 px-2 py-1 rounded-full animate-in fade-in slide-in-from-left-4 duration-700 delay-1000">
             <TrendingUp size={10} className="text-green-600" />
-            <span className="text-[9px] font-black text-green-700">99%</span>
+            <span className="text-[10px] font-black text-green-700">99.2%</span>
           </div>
         </div>
 
-        {/* 2. COMPACT BADGE LIST - Stacked on mobile to fix the scroll issue */}
-        <div className="space-y-2 relative z-10">
+        {/* Small Pill List - Now Horizontal & Animated */}
+        <div className="flex flex-wrap gap-1.5 mb-4">
           {badges.map((badge, i) => (
             <div
               key={badge.text}
-              className="flex items-center gap-3 bg-white/40 border border-slate-100/50 p-2 rounded-xl animate-in fade-in slide-in-from-right-4 fill-mode-both"
-              style={{ animationDelay: `${1000 + i * 150}ms` }}
+              className="flex items-center gap-1.5 bg-white/80 border border-slate-100 px-2.5 py-1 rounded-full shadow-sm animate-in fade-in zoom-in fill-mode-both"
+              style={{ animationDelay: `${1200 + i * 150}ms` }}
             >
-              <div className="text-primary bg-white p-1.5 rounded-lg shadow-sm">
-                {badge.icon}
-              </div>
-              <span className="text-[10px] font-bold text-slate-800 uppercase tracking-tight">
+              <div className="text-primary">{badge.icon}</div>
+              <span className="text-[9px] font-bold text-slate-700 whitespace-nowrap uppercase tracking-tighter">
                 {badge.text}
               </span>
             </div>
           ))}
         </div>
 
-        {/* 3. FOOTER */}
-        <div className="mt-4 pt-3 border-t border-slate-200/50 flex items-center justify-between relative z-10">
+        {/* Footer info - Reasonable & Compact */}
+        <div className="flex items-center justify-between pt-3 border-t border-slate-100/50">
           <div className="flex flex-col">
-            <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none">
-              Status
+            <span className="text-[9px] font-black text-slate-900 uppercase tracking-tight">
+              Verified Clinic
             </span>
-            <span className="text-[10px] font-black text-primary uppercase mt-1">
-              Live in Patna
+            <span className="text-[8px] text-black font-bold uppercase tracking-widest">
+              Patna HQ
             </span>
           </div>
           <div className="flex gap-1">
-            <div className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
-            <div className="w-1.5 h-1.5 rounded-full bg-secondary/40 animate-pulse delay-75" />
+            {[0, 150, 300].map((delay) => (
+              <div
+                key={delay}
+                className="w-1 h-1 rounded-full bg-primary/40 animate-pulse"
+                style={{ animationDelay: `${delay}ms` }}
+              />
+            ))}
           </div>
         </div>
       </div>

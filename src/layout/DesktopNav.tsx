@@ -16,6 +16,7 @@ export function DesktopNav({ pathname }: { pathname: string }) {
           <Image
             src={logoUrl}
             alt="Logo"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             fill
             className="rounded-full object-contain"
             priority
