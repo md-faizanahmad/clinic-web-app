@@ -6,6 +6,7 @@ import "./globals.css";
 import Footer from "@/src/layout/Footer";
 import ContactDock from "@/src/layout/ContactDock";
 import ClinicHeader from "@/src/layout/ClinicHeader";
+import BookingDock from "@/src/layout/BookingDock";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({
         <main className="grow animate-fade">{children}</main>
 
         <ContactDock />
+        <BookingDock />
         <Footer />
       </body>
     </html>

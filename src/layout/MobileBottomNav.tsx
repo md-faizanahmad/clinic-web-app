@@ -2,7 +2,6 @@
 
 // components/MobileBottomNav.tsx
 import Link from "next/link";
-import { CalendarPlus } from "lucide-react";
 import { navItems } from "../lib/navigations";
 
 export function MobileBottomNav({ pathname }: { pathname: string }) {
@@ -37,7 +36,7 @@ export function MobileBottomNav({ pathname }: { pathname: string }) {
           );
         })}
         {/* Booking Button (Custom Style) */}
-        <Link
+        {/* <Link
           href="/book"
           className={`flex flex-col items-center justify-center flex-1 transition-all duration-500 ${pathname === "/book" ? "-mt-10" : "mt-0"}`}
         >
@@ -51,7 +50,7 @@ export function MobileBottomNav({ pathname }: { pathname: string }) {
           >
             Book
           </span>
-        </Link>
+        </Link> */}
       </div>
     </nav>
   );
