@@ -14,7 +14,7 @@ export default function ClinicHeader() {
       <MobileHeader />
       <MobileBottomNav pathname={pathname} />
       {/* Spacer for mobile bottom nav */}
-      <div className="h-18 md:hidden" />
+      {/* <div className="h-18 md:hidden" /> */}
     </>
   );
 }

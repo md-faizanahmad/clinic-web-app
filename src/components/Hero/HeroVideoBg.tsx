@@ -3,7 +3,7 @@
 
 export default function HeroVideoBg() {
   return (
-    <div className="absolute  inset-0 z-0 w-full h-[60vh] md:h-screen flex items-center justify-center overflow-hidden bg-slate-900">
+    <div className="absolute  inset-0 z-0 w-full h-[80vh] md:h-screen flex items-center justify-center overflow-hidden bg-slate-900">
       <video
         autoPlay
         loop

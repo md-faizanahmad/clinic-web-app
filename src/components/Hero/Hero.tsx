@@ -11,9 +11,6 @@ function Hero() {
       <div className="hidden lg:block">
         <HeroTrustCard />
       </div>
-
-      
-      
     </section>
   );
 }
