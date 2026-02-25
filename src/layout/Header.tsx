@@ -190,7 +190,7 @@ export default function ClinicHeader(): JSX.Element {
         </div>
       </nav>
 
-      <div className="h-18 md:hidden" />
+   
     </>
   );
 }
