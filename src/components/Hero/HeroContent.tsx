@@ -34,7 +34,7 @@ export default function HeroContent() {
         </p>
 
         {/* 4. Interactive Action Stack */}
-        <div className="flex flex-wrap gap-4 pt-4 animate-in fade-in slide-in-from-top-4 duration-1000 delay-900 fill-mode-both">
+        <div className="flex flex-wrap gap-3 pt-4 animate-in fade-in slide-in-from-top-4 duration-1000 delay-900 fill-mode-both">
           <Link
             href="/book"
             className="group bg-white text-slate-950 px-5 py-5 rounded-4xl font-black text-sm shadow-2xl hover:bg-primary hover:text-white transition-all duration-500 active:scale-95 flex items-center justify-center gap-3"

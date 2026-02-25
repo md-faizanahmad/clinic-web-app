@@ -25,7 +25,7 @@ export default function HeroTrustCard() {
   ];
 
   return (
-    <div className="absolute bottom-28 md:bottom-12 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-12 z-30 w-[220px] md:w-[240px] select-none animate-in fade-in zoom-in duration-1000">
+    <div className="absolute bottom-28 md:bottom-12 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-12 z-30 w-55 md:w-60 select-none animate-in fade-in zoom-in duration-1000">
       <div className="bg-white/80 backdrop-blur-2xl border border-white/50 p-4 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
         {/* Success Metric - Premium Header */}
         <div className="flex items-center justify-between mb-4">
