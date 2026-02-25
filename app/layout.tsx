@@ -3,9 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ReactNode } from "react";
 
 import "./globals.css";
-import Header from "@/src/layout/Header";
 import Footer from "@/src/layout/Footer";
 import ContactDock from "@/src/layout/ContactDock";
+import ClinicHeader from "@/src/layout/ClinicHeader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,8 +33,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen bg-background`}
       >
-        <Header />
-
+        <ClinicHeader />
         {/* Page Transition Wrapper */}
         <main className="grow animate-fade">{children}</main>
 
