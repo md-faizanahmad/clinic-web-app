@@ -12,10 +12,8 @@ function Hero() {
         <HeroTrustCard />
       </div>
 
-      {/* Mobile version (optional: show smaller or different position) */}
- 
-        {/* You can render a simplified version here for mobile */}
-      </div>
+      
+      
     </section>
   );
 }
