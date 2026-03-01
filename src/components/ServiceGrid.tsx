@@ -1,11 +1,12 @@
-// components/ServiceGrid.tsx
+"use client";
+
+import Image from "next/image";
 import {
   HeartPulse,
   Stethoscope,
   Baby,
   Activity,
-  Plus,
-  ChevronRight,
+  ArrowUpRight,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -15,81 +16,124 @@ export default function ServiceGrid() {
       title: "Cardiology",
       desc: "Advanced heart diagnostics and care.",
       icon: <HeartPulse size={24} />,
+      image:
+        "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?q=80&w=1000",
       href: "/services/cardiology",
     },
     {
       title: "Diagnostics",
       desc: "Instant lab reports & digital X-Ray.",
       icon: <Activity size={24} />,
+      image:
+        "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?q=80&w=1000",
       href: "/services/diagnostics",
     },
     {
       title: "Pediatrics",
       desc: "Expert care for your child's health.",
       icon: <Baby size={24} />,
+      image:
+        "https://images.unsplash.com/photo-1581056771107-24ca5f033842?q=80&w=1000",
       href: "/services/pediatrics",
     },
     {
       title: "General Care",
-      desc: "Routine checkups & chronic management.",
+      desc: "Routine checkups & management.",
       icon: <Stethoscope size={24} />,
+      image:
+        "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1000",
       href: "/services/general",
     },
   ];
 
   return (
-    <section className="w-full py-16 px-6 bg-[#f8fafc]">
-      <div className="max-w-7xl mx-auto">
-        {/* Header - Short & Punchy */}
-        <div className="flex items-end justify-between mb-10">
-          <div className="space-y-1">
-            <span className="text-primary text-[10px] font-black uppercase tracking-[0.2em]">
-              Departments
-            </span>
-            <h2 className="text-3xl font-black text-slate-900 tracking-tight italic">
-              Medical Expertise.
-            </h2>
-          </div>
-          <Link
-            href="/services"
-            className="text-xs font-bold text-slate-400 hover:text-primary transition-colors flex items-center gap-1"
-          >
-            View All <ChevronRight size={14} />
-          </Link>
+    <section className="w-full py-16 md:py-24 px-0 md:px-6 bg-white">
+      <div className="max-w-7xl mx-auto flex flex-col items-center">
+        {/* Header - Padding added for mobile swipe visibility */}
+        <div className="text-center mb-12 px-6">
+          <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase italic leading-none">
+            Medical <span className="text-sky-700">Scope.</span>
+          </h2>
         </div>
 
-        {/* Grid - 3-6 items max */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* MOBILE: Horizontal Slide (Snap-center)
+          DESKTOP: Static Flex Row
+        */}
+        <div className="w-full overflow-x-auto no-scrollbar snap-x snap-mandatory flex md:flex-row gap-5 px-6 md:px-0 md:justify-center">
           {services.map((service) => (
             <Link
               key={service.title}
               href={service.href}
-              className="group bg-white p-6 rounded-4xl border border-slate-100 hover:border-primary/20 transition-all duration-300 active:scale-[0.98]"
+              className="group relative md:w-55 md:h-75 aspect-4/5 shrink-0 w-280px md:w-220px h-380px md:h-320px rounded-[3rem] overflow-hidden shadow-2xl snap-center transition-all duration-500 md:hover:-translate-y-2 active:scale-95"
             >
-              <div className="flex flex-col h-full space-y-4">
-                {/* Compact Icon */}
-                <div className="w-12 h-12 bg-slate-50 text-primary rounded-2xl flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+              {/* 1. Background Image */}
+              <div className="absolute inset-0 z-0">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  sizes="(max-width: 768px) 280px, 220px"
+                  className="object-cover md:group-hover:scale-110 transition-transform duration-700"
+                />
+                {/* Overlay logic: Always visible on mobile, Hover-only on Desktop */}
+                <div className="absolute inset-0 bg-slate-950/70 z-10 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+
+              {/* 2. Content Layer */}
+              <div className="relative z-20 h-full p-8 md:p-6 flex flex-col justify-between">
+                {/* Icon Wrapper */}
+                <div className="bg-white/10 backdrop-blur-xl w-14 h-14 md:w-12 md:h-12 rounded-2xl flex items-center justify-center text-white border border-white/20">
                   {service.icon}
                 </div>
 
-                <div className="space-y-1">
-                  <h3 className="text-lg font-black text-slate-900 leading-none tracking-tight">
+                {/* Details logic: Animated on Desktop, Static on Mobile */}
+                <div className="space-y-2 md:transform md:translate-y-4 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-500 delay-100 mobile-details-visible">
+                  <h3 className="text-xl md:text-lg font-black text-white leading-none uppercase italic">
                     {service.title}
                   </h3>
-                  <p className="text-[11px] text-slate-500 font-medium leading-relaxed uppercase tracking-wide">
+                  <p className="text-[11px] md:text-[10px] text-slate-300 font-bold uppercase leading-tight tracking-wide">
                     {service.desc}
                   </p>
-                </div>
-
-                {/* Subtle Action Link */}
-                <div className="pt-2 flex items-center gap-1 text-[10px] font-black text-primary opacity-0 group-hover:opacity-100 transition-opacity uppercase">
-                  Details <Plus size={10} strokeWidth={3} />
+                  <div className="pt-2">
+                    <div className="inline-flex items-center gap-2 bg-sky-700 text-white p-2.5 rounded-xl shadow-lg">
+                      <ArrowUpRight size={16} />
+                    </div>
+                  </div>
                 </div>
               </div>
             </Link>
           ))}
         </div>
+
+        {/* Swipe Indicator (Mobile Only) */}
+        <div className="flex md:hidden gap-1.5 mt-8">
+          {services.map((_, i) => (
+            <div
+              key={i}
+              className="h-1 w-4 rounded-full bg-slate-200 first:bg-sky-700"
+            />
+          ))}
+        </div>
       </div>
+
+      <style jsx>{`
+        /* Custom scrollbar hiding */
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+
+        /* Force details visibility for mobile */
+        @media (max-width: 767px) {
+          .mobile-details-visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
