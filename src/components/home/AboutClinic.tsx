@@ -1,111 +1,154 @@
-// components/AboutClinic.tsx
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import {
   ShieldCheck,
   GraduationCap,
   Building2,
-  HeartHandshake,
+  Medal,
+  ChevronRight,
 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function AboutClinic() {
+  const [currentImg, setCurrentImg] = useState(0);
+
+  const images = [
+    "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1000", // Modern Lobby
+    "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1000", // Operation Theater
+    "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=1000", // Consultation Room
+  ];
+
   const highlights = [
     {
-      title: "Certified Specialists",
-      text: "Doctors from AIIMS & top global institutions.",
-      icon: <GraduationCap size={20} />,
+      title: "AIIMS Certified",
+      text: "Global standard expertise.",
+      icon: <GraduationCap size={18} />,
     },
     {
-      title: "Modern Environment",
-      text: "Sanitized, private, and tech-enabled rooms.",
-      icon: <Building2 size={20} />,
+      title: "Digital Facility",
+      text: "Tech-enabled recovery.",
+      icon: <Building2 size={18} />,
     },
   ];
 
+  // Auto-slide logic
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImg((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [images.length]);
+
   return (
-    <section className="w-full py-16 md:py-24 px-6 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        {/* Left Side: Visual Trust */}
-        <div className="relative group">
-          {/* Main Image - Replace with your actual clinic photo */}
-          <div className="relative aspect-4/5 md:aspect-square w-full overflow-hidden rounded-[3rem] shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]">
-            <Image
-              src="/doctors.png"
-              alt="Modern Clinic Environment"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-            {/* Dark Overlay for branding lift */}
-            <div className="absolute inset-0 bg-linear-to-t from-slate-900/60 to-transparent opacity-60" />
+    <section className="w-full py-16 md:py-24 px-4 md:px-6 bg-slate-50 overflow-hidden">
+      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12 items-center">
+        {/* Left: Compact Auto-Slider Gallery */}
+        <div className="relative w-full lg:w-112.5 shrink-0">
+          <div className="relative aspect-square md:aspect-4/5 overflow-hidden rounded-[2.5rem] shadow-2xl border-8 border-white">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentImg}
+                initial={{ opacity: 0, scale: 1.1 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.8 }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={images[currentImg]}
+                  alt="Clinic Gallery"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 450px"
+                />
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Gallery Progress Overlay */}
+            <div className="absolute bottom-6 left-6 flex gap-2 z-10">
+              {images.map((_, i) => (
+                <div
+                  key={i}
+                  className={`h-1 rounded-full transition-all duration-500 ${currentImg === i ? "w-8 bg-white" : "w-2 bg-white/40"}`}
+                />
+              ))}
+            </div>
           </div>
 
-          {/* Floating Badge over image */}
-          <div className="absolute -bottom-6 -right-6 md:right-10 bg-secondary p-6 rounded-[2.5rem] shadow-xl animate-bounce-slow">
-            <HeartHandshake className="text-white" size={32} />
+          {/* Floating Trust Badge */}
+          <div className="absolute -top-4 -right-4 bg-sky-700 text-white p-5 rounded-4xl shadow-xl animate-pulse hidden md:block">
+            <Medal size={24} />
           </div>
         </div>
 
-        {/* Right Side: Narrative */}
-        <div className="space-y-8">
-          <div className="space-y-3">
-            <span className="text-primary text-[10px] font-black uppercase tracking-[0.2em] flex items-center gap-2">
-              <ShieldCheck size={14} /> Since 2016 • Patna HQ
-            </span>
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 leading-[1.1] tracking-tight italic">
-              Bihar’s Standard for{" "}
-              <span className="text-primary underline decoration-primary/20 underline-offset-8">
-                Clinical Excellence.
+        {/* Right: Sharp Medical Narrative */}
+        <div className="flex-1 space-y-8">
+          <div className="space-y-4">
+            <div className="inline-flex items-center gap-2 bg-sky-100 px-3 py-1 rounded-full">
+              <ShieldCheck size={12} className="text-sky-700" />
+              <span className="text-sky-700 text-[9px] font-black uppercase tracking-widest">
+                Established 2016 • Patna HQ
+              </span>
+            </div>
+
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 leading-[1.05] tracking-tighter uppercase italic">
+              Bihar&apos;s Center for <br />
+              <span className="text-sky-700 not-italic">
+                Clinical Precision.
               </span>
             </h2>
-          </div>
 
-          <div className="space-y-6">
-            <p className="text-slate-500 text-lg leading-relaxed font-medium italic">
-              &quot;We started with a single mission: to provide the people of
-              Bihar with medical care that doesn&apos;t require traveling to
-              another state.&quot;
-            </p>
-
-            <p className="text-slate-600 text-sm leading-loose">
-              Our facility combines international healthcare protocols with
-              local compassion. From digital diagnostics to 24/7 trauma
-              response, every corner of ClinicCare is built to prioritize
-              patient recovery and comfort.
+            <p className="text-slate-500 text-sm md:text-base font-bold uppercase leading-relaxed max-w-lg">
+              We provide world-class medical infrastructure in Bihar,
+              eliminating the need for patients to travel out of state for
+              advanced surgery and diagnostics.
             </p>
           </div>
 
-          {/* Features Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+          {/* Compact Grid */}
+          <div className="grid grid-cols-2 gap-4">
             {highlights.map((item, i) => (
-              <div key={i} className="flex gap-4 group">
-                <div className="bg-slate-50 text-primary p-3 rounded-2xl h-fit group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+              <div
+                key={i}
+                className="bg-white p-5 border border-slate-100 rounded-4xl group hover:border-sky-700/30 transition-all"
+              >
+                <div className="text-sky-700 mb-3 bg-sky-50 w-fit p-2 rounded-xl group-hover:bg-sky-700 group-hover:text-white transition-colors">
                   {item.icon}
                 </div>
-                <div className="space-y-1">
-                  <h4 className="text-sm font-black text-slate-900 uppercase tracking-tight">
-                    {item.title}
-                  </h4>
-                  <p className="text-[11px] text-slate-500 font-bold leading-normal">
-                    {item.text}
-                  </p>
-                </div>
+                <h4 className="text-[11px] font-black text-slate-900 uppercase tracking-tight">
+                  {item.title}
+                </h4>
+                <p className="text-[9px] text-slate-400 font-bold uppercase mt-1">
+                  {item.text}
+                </p>
               </div>
             ))}
           </div>
 
-          {/* Signature Action */}
-          <div className="pt-6 border-t border-slate-100 flex items-center gap-6">
-            <div>
-              <p className="text-xs font-black text-slate-900 uppercase italic">
-                Dr. Aryan Sharma
-              </p>
-              <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">
-                Chief Medical Officer
-              </p>
+          {/* Action Row */}
+          <div className="flex items-center gap-6 pt-6 border-t border-slate-200">
+            <div className="flex items-center gap-3">
+              <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-sky-700">
+                <Image
+                  src="https://i.pravatar.cc/100?img=11"
+                  alt="CMO"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div>
+                <p className="text-[10px] font-black text-slate-900 uppercase leading-none">
+                  Dr. Aryan Sharma
+                </p>
+                <p className="text-[8px] text-sky-700 font-black uppercase tracking-widest mt-1">
+                  Chief Surgeon
+                </p>
+              </div>
             </div>
-            <div className="h-8 w-px bg-slate-200" />
-            <button className="text-[11px] font-black text-primary uppercase border-b-2 border-primary/20 pb-1 hover:border-primary transition-all">
-              Our Full Story
+            <button className="flex items-center gap-1 text-[10px] font-black text-slate-400 uppercase tracking-widest hover:text-sky-700 transition-colors ml-auto">
+              Read Story <ChevronRight size={14} />
             </button>
           </div>
         </div>
