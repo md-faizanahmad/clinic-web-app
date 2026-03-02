@@ -2,7 +2,7 @@
 
 import Hero from "@/src/components/Hero/Hero";
 import AboutClinic from "@/src/components/home/AboutClinic";
-import AppointmentCTA from "@/src/components/home/AppointmentCTA";
+import AppointmentCTA from "@/src/components/home/appointment-cta/AppointmentCTA";
 import DoctorTeam from "@/src/components/home/DoctorTeam";
 import EmergencyBanner from "@/src/components/home/EmergencyBanner";
 import ServiceGrid from "@/src/components/ServiceGrid";
