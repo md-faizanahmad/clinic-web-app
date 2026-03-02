@@ -1,13 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import {
-  GraduationCap,
-  Award,
-  CalendarCheck,
-  ArrowUpRight,
-  ShieldCheck,
-} from "lucide-react";
+import { GraduationCap, Award, CalendarCheck, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 
 export default function DoctorTeam() {
@@ -36,87 +30,91 @@ export default function DoctorTeam() {
   ];
 
   return (
-    <section className="w-full py-16 md:py-24  overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
-        {/* Header - Industrial & Minimal */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-          <div className="space-y-3">
+    <section className="w-full py-20 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Header - Sharp & Clean */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div className="space-y-4">
             <div className="flex items-center gap-2">
               <ShieldCheck size={14} className="text-sky-700" />
-              <span className="text-sky-700 text-[9px] font-black uppercase tracking-[0.3em]">
-                Verified Medical Board
+              <span className="text-sky-700 text-[10px] font-black uppercase tracking-[0.3em]">
+                Verified Clinical Experts
               </span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter uppercase italic leading-none">
-              The <span className="text-sky-700">Specialists.</span>
+            <h2 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter uppercase italic leading-[0.85]">
+              Expert <br />
+              <span className="text-sky-700 not-italic">Hands.</span>
             </h2>
           </div>
-          <p className="max-w-60 text-slate-400 text-[10px] font-bold uppercase leading-relaxed tracking-tight">
-            Our doctors hold credentials from AIIMS, NIMHANS, and top global
-            medical institutions.
+          <p className="max-w-xs text-slate-400 text-[11px] font-bold uppercase leading-relaxed tracking-tight border-l-2 border-slate-100 pl-4">
+            Specialists from AIIMS & NIMHANS providing the highest tier of
+            medical care in Patna.
           </p>
         </div>
 
-        {/* Doctor Slider/Grid */}
-        {/* Mobile: Horizontal Swipe | Desktop: 3-Col Grid */}
-        <div className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto overflow-hidden no-scrollbar snap-x snap-mandatory pb-8 md:pb-0">
+        {/* Doctor Grid - Mobile: Snap Slide | Desktop: Circular Hover */}
+        <div className="flex md:grid md:grid-cols-3 gap-8 overflow-x-auto no-scrollbar snap-x snap-mandatory">
           {doctors.map((doc, i) => (
             <div
               key={i}
-              className="shrink-0 w-70 md:w-full snap-center group relative"
+              className="shrink-0 w-65 md:w-full snap-center group relative flex flex-col items-center"
             >
-              {/* Profile Image with sharp corners (Premium Android/iOS feel) */}
-              <div className="relative p-5 aspect-square overflow-hidden rounded-[2.5rem] shadow-2xl border border-slate-100">
+              {/* 1. THE CIRCULAR AVATAR */}
+              <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-8 border-slate-50 shadow-2xl transition-all duration-500 group-hover:scale-90 group-hover:-translate-y-5">
                 <Image
                   src={doc.img}
                   alt={doc.name}
                   fill
-                  className="object-cover grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                  sizes="(max-width: 768px) 280px, 33vw"
+                  className="object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700"
+                  sizes="300px"
                 />
-
-                {/* Glassmorphic Info Overlay */}
-                <div className="absolute inset-x-3 bottom-3 bg-white/80 backdrop-blur-xl p-5 rounded-4xl border border-white/50 shadow-xl">
-                  <div className="flex justify-between items-start mb-3">
-                    <div className="space-y-1">
-                      <h3 className="text-lg font-black text-slate-900 tracking-tighter leading-none uppercase italic">
-                        {doc.name}
-                      </h3>
-                      <p className="text-[10px] font-black text-sky-700 uppercase tracking-widest">
-                        {doc.role}
-                      </p>
-                    </div>
-                    <div className="bg-sky-700 text-white p-2 rounded-xl">
-                      <ArrowUpRight size={14} />
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3 pt-3 border-t border-slate-900/5">
-                    <div className="flex items-center gap-1.5">
-                      <Award size={12} className="text-slate-400" />
-                      <span className="text-[9px] font-black text-slate-900 uppercase">
-                        {doc.exp}
-                      </span>
-                    </div>
-                    <div className="w-px h-3 bg-slate-200" />
-                    <div className="flex items-center gap-1.5">
-                      <GraduationCap size={12} className="text-slate-400" />
-                      <span className="text-[9px] font-bold text-slate-500 uppercase tracking-tighter truncate max-w-25">
-                        {doc.qual.split(",")[0]}
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                {/* Subtle Radial Gradient Overlay */}
+                <div className="absolute inset-0 bg-radial-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
 
-              {/* Action Button - Floating behind the card slightly */}
-              <Link
-                href="/book"
-                className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-[80%] py-4 bg-slate-900 text-white rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] flex items-center justify-center gap-2 shadow-xl hover:bg-sky-700 transition-all opacity-0 group-hover:opacity-100 group-hover:bottom-0 md:group-hover:-bottom-2"
-              >
-                <CalendarCheck size={14} />
-                Book Consult
-              </Link>
+              {/* 2. HOVER DETAILS CARD */}
+              <div className="-mt-8 w-full max-w-60 bg-white border border-slate-100 p-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 md:group-hover:-translate-y-1.25 transition-all duration-500 shadow-xl relative z-10 text-center">
+                {/* Header: More compact spacing */}
+                <div className="mb-3">
+                  <h3 className="text-sm font-black text-slate-900 tracking-tight uppercase italic leading-tight">
+                    {doc.name}
+                  </h3>
+                  <p className="text-[10px] font-bold text-sky-700 uppercase tracking-wider">
+                    {doc.role}
+                  </p>
+                </div>
+
+                {/* Stats Row: Reduced vertical padding */}
+                <div className="flex items-center justify-around mb-3 border-y border-slate-50 py-2">
+                  <div className="flex items-center gap-1.5">
+                    <Award size={12} className="text-slate-400" />
+                    <span className="text-[10px] font-bold text-slate-900 uppercase">
+                      {doc.exp}
+                    </span>
+                  </div>
+                  <div className="h-3 w-px bg-slate-100" />
+                  <div className="flex items-center gap-1.5 max-w-[50%]">
+                    <GraduationCap size={12} className="text-slate-400" />
+                    <span className="text-[10px] font-bold text-slate-900 uppercase truncate">
+                      {doc.qual.split(",")[0]}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Button: Shorter padding, medium-small text */}
+                <Link
+                  href="/book"
+                  className="w-full py-2.5 bg-slate-950 text-white text-[10px] font-black uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-sky-700 transition-colors"
+                >
+                  <CalendarCheck size={12} />
+                  Book Now
+                </Link>
+              </div>
+
+              {/* Status Indicator (Always visible on mobile) */}
+              <div className="absolute top-4 right-10 md:right-16 bg-white shadow-lg p-2 rounded-full z-20 border border-slate-100">
+                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              </div>
             </div>
           ))}
         </div>
