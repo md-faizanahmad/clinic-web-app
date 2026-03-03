@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import ServiceReveal from "@/src/motion/ScrollReveal";
+import EmergencyHero from "@/src/components/EmergencyHero";
 
 export const metadata = {
   title: "Medical Departments | ClinicCare Patna",
@@ -124,7 +125,7 @@ export default function ServicesPage() {
       </section>
 
       {/* --- EMERGENCY: High Contrast Medical CTA --- */}
-
+      <EmergencyHero />
       {/* Mobile Safe Area */}
       <div className="h-24 md:hidden" aria-hidden="true" />
     </main>
