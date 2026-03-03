@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Activity, Ambulance, Phone } from "lucide-react";
+import { Ambulance, Phone } from "lucide-react";
 
 export default function EmergencyHero() {
   return (
