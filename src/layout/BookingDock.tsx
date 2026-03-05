@@ -1,9 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { 
-  CalendarCheck, X, User, Phone, Send, 
-  ChevronRight, Calendar as CalIcon, Clock, CheckCircle2, Loader2 
+import {
+  CalendarCheck,
+  X,
+  User,
+  Phone,
+  Send,
+  ChevronRight,
+  Calendar as CalIcon,
+  Clock,
+  CheckCircle2,
+  Loader2,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -23,8 +31,14 @@ export default function BookingDock() {
   });
 
   const times = [
-    "09:00 AM", "10:30 AM", "12:00 PM", "01:30 PM", 
-    "04:00 PM", "05:30 PM", "07:00 PM", "08:30 PM"
+    "09:00 AM",
+    "10:30 AM",
+    "12:00 PM",
+    "01:30 PM",
+    "04:00 PM",
+    "05:30 PM",
+    "07:00 PM",
+    "08:30 PM",
   ];
 
   const handleDateTimeSubmit = () => {
@@ -45,10 +59,10 @@ export default function BookingDock() {
   return (
     <>
       {/* --- TRIGGER BUTTON --- */}
-      <div className="md:hidden fixed bottom-40 right-6 z-[999]">
+      <div className="md:hidden fixed bottom-40 right-6 z-999">
         <button
           onClick={() => setIsOpen(true)}
-          className="bg-sky-700 text-white h-16 w-16 flex items-center justify-center shadow-2xl border border-white/10 active:scale-90 transition-transform"
+          className="bg-sky-700 rounded-full text-white h-10 w-10 flex items-center justify-center shadow-2xl border border-white/10 active:scale-90 transition-transform"
         >
           <CalendarCheck size={28} />
         </button>
@@ -57,7 +71,7 @@ export default function BookingDock() {
       {/* --- MODAL SYSTEM --- */}
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-[9999] flex items-end justify-center">
+          <div className="fixed inset-0 z-9999 flex items-end justify-center">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -80,7 +94,10 @@ export default function BookingDock() {
                   {step === "DETAILS" && "Patient Info"}
                   {step === "SUCCESS" && "Confirmed"}
                 </span>
-                <button onClick={() => setIsOpen(false)} className="p-2 text-slate-900">
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="p-2 text-slate-900"
+                >
                   <X size={20} />
                 </button>
               </div>
@@ -106,10 +123,15 @@ export default function BookingDock() {
                               key={date}
                               onClick={() => setSelectedDate(date)}
                               className={`py-3 text-[10px] font-bold border transition-all ${
-                                selectedDate === date ? "bg-sky-700 text-white border-sky-700" : "bg-slate-50 border-slate-100 text-slate-600"
+                                selectedDate === date
+                                  ? "bg-sky-700 text-white border-sky-700"
+                                  : "bg-slate-50 border-slate-100 text-slate-600"
                               }`}
                             >
-                              {new Date(date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}
+                              {new Date(date).toLocaleDateString("en-IN", {
+                                day: "numeric",
+                                month: "short",
+                              })}
                             </button>
                           ))}
                         </div>
@@ -125,7 +147,9 @@ export default function BookingDock() {
                               key={time}
                               onClick={() => setSelectedTime(time)}
                               className={`py-3 text-[10px] font-bold border transition-all ${
-                                selectedTime === time ? "bg-sky-700 text-white border-sky-700" : "bg-slate-50 border-slate-100 text-slate-600"
+                                selectedTime === time
+                                  ? "bg-sky-700 text-white border-sky-700"
+                                  : "bg-slate-50 border-slate-100 text-slate-600"
                               }`}
                             >
                               {time}
@@ -153,8 +177,13 @@ export default function BookingDock() {
                       exit={{ opacity: 0 }}
                       className="h-[300px] flex flex-col items-center justify-center space-y-4"
                     >
-                      <Loader2 size={40} className="text-sky-700 animate-spin" />
-                      <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Checking Availability...</p>
+                      <Loader2
+                        size={40}
+                        className="text-sky-700 animate-spin"
+                      />
+                      <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">
+                        Checking Availability...
+                      </p>
                     </motion.div>
                   )}
 
@@ -168,20 +197,39 @@ export default function BookingDock() {
                       className="space-y-6"
                     >
                       <div className="bg-slate-50 p-4 border-l-4 border-sky-700">
-                        <p className="text-[10px] font-black text-slate-400 uppercase leading-none">Selected Slot</p>
+                        <p className="text-[10px] font-black text-slate-400 uppercase leading-none">
+                          Selected Slot
+                        </p>
                         <p className="text-sm font-bold text-slate-900 mt-1 uppercase">
-                          {new Date(selectedDate).toDateString()} @ {selectedTime}
+                          {new Date(selectedDate).toDateString()} @{" "}
+                          {selectedTime}
                         </p>
                       </div>
 
                       <div className="space-y-4">
                         <div className="relative">
-                          <User className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300" size={16} />
-                          <input required type="text" placeholder="PATIENT FULL NAME" className="w-full bg-slate-50 border border-slate-100 p-4 pl-12 text-[11px] font-black outline-none uppercase" />
+                          <User
+                            className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300"
+                            size={16}
+                          />
+                          <input
+                            required
+                            type="text"
+                            placeholder="PATIENT FULL NAME"
+                            className="w-full bg-slate-50 border border-slate-100 p-4 pl-12 text-[11px] font-black outline-none uppercase"
+                          />
                         </div>
                         <div className="relative">
-                          <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300" size={16} />
-                          <input required type="tel" placeholder="CONTACT NUMBER" className="w-full bg-slate-50 border border-slate-100 p-4 pl-12 text-[11px] font-black outline-none uppercase" />
+                          <Phone
+                            className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300"
+                            size={16}
+                          />
+                          <input
+                            required
+                            type="tel"
+                            placeholder="CONTACT NUMBER"
+                            className="w-full bg-slate-50 border border-slate-100 p-4 pl-12 text-[11px] font-black outline-none uppercase"
+                          />
                         </div>
                       </div>
 
@@ -206,12 +254,18 @@ export default function BookingDock() {
                         <CheckCircle2 size={40} />
                       </div>
                       <div>
-                        <h3 className="text-2xl font-black text-slate-900 italic uppercase">Confirmed!</h3>
+                        <h3 className="text-2xl font-black text-slate-900 italic uppercase">
+                          Confirmed!
+                        </h3>
                         <p className="text-xs font-medium text-slate-500 mt-2 max-w-[200px] mx-auto uppercase">
-                          Your request for {selectedTime} has been received. Our team will call you shortly.
+                          Your request for {selectedTime} has been received. Our
+                          team will call you shortly.
                         </p>
                       </div>
-                      <button onClick={() => setIsOpen(false)} className="px-10 py-3 border-2 border-slate-900 text-xs font-black uppercase">
+                      <button
+                        onClick={() => setIsOpen(false)}
+                        className="px-10 py-3 border-2 border-slate-900 text-xs font-black uppercase"
+                      >
                         Close
                       </button>
                     </motion.div>

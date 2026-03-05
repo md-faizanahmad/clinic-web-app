@@ -14,11 +14,11 @@
   --border: oklch(0.922 0 0);
 
   /* Brand */
-  --primary: oklch(0.205 0 0); /* strong medical blue */
+  --primary: oklch(44.989% 0.08921 232.16); /* strong medical blue */
   --primary-foreground: oklch(0.985 0 0);
 
   --secondary: oklch(0.97 0 0); /* calm teal */
-  --secondary-foreground: oklch(0.205 0 0);
+  --secondary-foreground: oklch(20.463% 0.00002 271.152);
 
   /* Emergency */
   --danger: #dc2626;
