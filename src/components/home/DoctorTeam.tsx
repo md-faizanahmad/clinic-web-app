@@ -53,7 +53,7 @@ export default function DoctorTeam() {
         </div>
 
         {/* Doctor Grid - Mobile: Snap Slide | Desktop: Circular Hover */}
-        <div className="flex md:grid md:grid-cols-3 gap-8 overflow-x-auto no-scrollbar snap-x snap-mandatory">
+        <div className="flex md:grid cursor-pointer md:grid-cols-3 gap-8 overflow-x-auto no-scrollbar snap-x snap-mandatory">
           {doctors.map((doc, i) => (
             <div
               key={i}
@@ -85,7 +85,7 @@ export default function DoctorTeam() {
                 </div>
 
                 {/* Stats Row: Reduced vertical padding */}
-                <div className="flex items-center justify-around mb-3 border-y border-slate-50 py-2">
+                <div className="flex cursor-pointer items-center justify-around mb-3 border-y border-slate-50 py-2">
                   <div className="flex items-center gap-1.5">
                     <Award size={12} className="text-slate-400" />
                     <span className="text-[10px] font-bold text-slate-900 uppercase">

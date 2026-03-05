@@ -46,7 +46,7 @@ export default function AboutClinic() {
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12 items-center">
         {/* Left: Compact Auto-Slider Gallery */}
         <div className="relative w-full lg:w-112.5 shrink-0">
-          <div className="relative aspect-square md:aspect-4/5 overflow-hidden rounded-[2.5rem] shadow-2xl border-8 border-white">
+          <div className="relative aspect-square cursor-pointer md:aspect-4/5 overflow-hidden rounded-[2.5rem] shadow-2xl border-8 border-white">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentImg}

@@ -47,7 +47,7 @@ export default function ServiceGrid() {
   ];
 
   return (
-    <section className="w-full py-16 md:py-24 px-0 md:px-6 bg-white">
+    <section className="w-full py-16 md:py-24 px-0 md:px-6 ">
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         {/* Header - Padding added for mobile swipe visibility */}
         <div className="text-center mb-12 px-6">

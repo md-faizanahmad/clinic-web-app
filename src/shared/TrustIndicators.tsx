@@ -13,7 +13,7 @@ export default function TrustIndicators() {
     <section className="w-full  border-y border-slate-100 relative z-20">
       <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 md:h-24 flex items-center">
         {/* 4-Column Grid: Fixed on Mobile, No Scroll */}
-        <div className="grid grid-cols-4 md:flex md:flex-row items-center justify-between w-full">
+        <div className="grid cursor-pointer grid-cols-4 md:flex md:flex-row items-center justify-between w-full">
           {indicators.map((item, i) => (
             <div
               key={i}

@@ -28,7 +28,7 @@ export default function HeroTrustCard() {
     <div className="absolute  bottom-28 md:bottom-12 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-20 z-30 w-55 md:w-80 select-none animate-in fade-in zoom-in duration-1000">
       <div className="bg-white/80 backdrop-blur-2xl border border-white/50 p-4 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
         {/* Success Metric - Premium Header */}
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex cursor-pointer items-center justify-between mb-4">
           <div className="flex  -space-x-2.5">
             {avatars.map((url, i) => (
               <div
@@ -60,7 +60,7 @@ export default function HeroTrustCard() {
           {badges.map((badge, i) => (
             <div
               key={badge.text}
-              className="flex items-center gap-3 bg-white/50 border border-slate-100 p-2 rounded-2xl transition-all hover:bg-white hover:shadow-sm group overflow-hidden"
+              className="flex cursor-pointer items-center gap-3 bg-white/50 border border-slate-100 p-2 rounded-2xl transition-all hover:bg-white hover:shadow-sm group overflow-hidden"
               style={{ animationDelay: `${1200 + i * 150}ms` }}
             >
               <div className="text-primary bg-primary/10 p-2 rounded-xl group-hover:bg-primary group-hover:text-white transition-colors duration-300">
