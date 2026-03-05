@@ -17,6 +17,11 @@ const slots = [
   "07:00 PM",
   "08:30 PM",
 ];
+const today = new Date();
+const minDate = today.toISOString().split("T")[0];
+const max = new Date();
+max.setMonth(max.getMonth() + 2);
+const maxDate = max.toISOString().split("T")[0];
 
 export default function DateTimeStep({
   formData,
@@ -39,6 +44,8 @@ export default function DateTimeStep({
 
         <input
           type="date"
+          min={minDate}
+          max={maxDate}
           className="w-full bg-slate-50 border border-slate-100 p-5 text-sm font-black uppercase outline-none focus:ring-2 focus:ring-sky-700/10"
           onChange={(e) => setFormData({ ...formData, date: e.target.value })}
         />
