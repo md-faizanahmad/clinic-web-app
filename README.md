@@ -46,8 +46,7 @@ and easy communication with patients.
 
 <p>
 Add your deployed link here.<br>
-Example: https://your-project.vercel.app
-</p>
+Example: https://clinic-web-app-nine.vercel.app</p>
 
 <hr>
 
