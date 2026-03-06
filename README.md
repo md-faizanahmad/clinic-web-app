@@ -1,4 +1,4 @@
-<h1 align="center">Clinic Web App Landing Page</h1>
+<h1 align="center">Clinic Web App </h1>
 
 <p align="center">
 A responsive landing page designed to promote a clinic management system.
