@@ -4,10 +4,9 @@ import { ReactNode } from "react";
 
 import "./globals.css";
 import Footer from "@/src/layout/Footer";
-import ContactDock from "@/src/layout/ContactDock";
 import ClinicHeader from "@/src/layout/ClinicHeader";
 import BookingDock from "@/src/booking/mobile/BookingDock";
-import ClinicChatbot from "@/src/bot/ClinicChatBot";
+import ClinicChatbot from "@/src/bot/ClinicChatWidget";
 // import BookingDock from "@/src/layout/BookingDock";
 
 const geistSans = Geist({
@@ -40,7 +39,7 @@ export default function RootLayout({
         {/* Page Transition Wrapper */}
         <main className="grow animate-fade">{children}</main>
 
-        <ContactDock />
+        {/* <ContactDock /> */}
         {/* <BookingDock /> */}
         <BookingDock />
         <ClinicChatbot />
