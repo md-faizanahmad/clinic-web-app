@@ -7,6 +7,7 @@ import Footer from "@/src/layout/Footer";
 import ClinicHeader from "@/src/layout/ClinicHeader";
 import BookingDock from "@/src/booking/mobile/BookingDock";
 import ClinicChatbot from "@/src/bot/ClinicChatWidget";
+import TopContactBar from "@/src/shared/TopContactBar";
 // import BookingDock from "@/src/layout/BookingDock";
 
 const geistSans = Geist({
@@ -35,6 +36,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen bg-background`}
       >
+        <TopContactBar />
         <ClinicHeader />
         {/* Page Transition Wrapper */}
         <main className="grow animate-fade">{children}</main>
