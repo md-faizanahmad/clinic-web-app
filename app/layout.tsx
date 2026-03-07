@@ -5,10 +5,10 @@ import { ReactNode } from "react";
 import "./globals.css";
 import Footer from "@/src/layout/Footer";
 import ClinicHeader from "@/src/layout/ClinicHeader";
-import BookingDock from "@/src/booking/mobile/BookingDock";
-import ClinicChatbot from "@/src/bot/ClinicChatWidget";
+// import BookingDock from "@/src/booking/mobile/BookingDock";
+// import ClinicChatbot from "@/src/bot/ClinicChatWidget";
 import TopContactBar from "@/src/shared/TopContactBar";
-// import BookingDock from "@/src/layout/BookingDock";
+import SiteOverlays from "@/src/shared/SiteOverlays";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -83,10 +83,9 @@ export default function RootLayout({
         {/* Page Transition Wrapper */}
         <main className="grow animate-fade">{children}</main>
 
-        {/* <ContactDock /> */}
-        {/* <BookingDock /> */}
-        <BookingDock />
-        <ClinicChatbot />
+        {/* <BookingDock />
+        <ClinicChatbot /> */}
+        <SiteOverlays />
         <Footer />
       </body>
     </html>

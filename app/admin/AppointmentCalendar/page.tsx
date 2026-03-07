@@ -67,7 +67,7 @@ export default function AppointmentCalendar() {
 
       {selectedDate && (
         <div className="fixed inset-0 bg-black/40 flex items-end sm:items-center justify-center z-50">
-          <div className="bg-white w-full sm:w-[400px] rounded-t-xl sm:rounded-xl p-5 max-h-[80vh] overflow-y-auto">
+          <div className="bg-white w-full sm:w-100 rounded-t-xl sm:rounded-xl p-5 max-h-[80vh] overflow-y-auto">
             {/* Header */}
 
             <div className="flex justify-between items-center mb-4">
