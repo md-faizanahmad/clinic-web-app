@@ -21,7 +21,7 @@ export default function ClinicChatWidget() {
     if (view === "location") {
       return (
         <div className="space-y-2">
-          <div className="bg-gray-100 p-2 rounded-lg text-sm">
+          <div className="bg-gray-100  cursor-pointer p-2 rounded-lg text-sm">
             📍 Clinic Location
             <br />
             Patna, Bihar
@@ -34,7 +34,7 @@ export default function ClinicChatWidget() {
 
     if (view === "timing") {
       return (
-        <div className="bg-gray-100 p-2 rounded-lg text-sm">
+        <div className="bg-gray-100 p-2  rounded-lg text-sm">
           🕒 Clinic Timing
           <br />9 AM – 8 PM (Mon–Sat)
         </div>
@@ -43,7 +43,7 @@ export default function ClinicChatWidget() {
 
     if (view === "doctors") {
       return (
-        <div className="bg-gray-100 p-2 rounded-lg text-sm">
+        <div className="bg-gray-100 cursor-pointer p-2 rounded-lg text-sm">
           Dr. Rahman – General Physician
           <br />
           Dr. Khan – Dentist
@@ -62,7 +62,7 @@ export default function ClinicChatWidget() {
 
       <button
         onClick={() => setOpen(!open)}
-        className="fixed bottom-22 right-4 z-50 bg-green-600 text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition"
+        className="fixed bottom-22 cursor-pointer right-4 z-50 bg-green-600 text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition"
       >
         <MessageCircle size={20} />
       </button>
@@ -86,7 +86,7 @@ export default function ClinicChatWidget() {
         {/* Header */}
 
         <div className="flex items-center justify-between border-b px-3 py-2">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 cursor-pointer">
             {view !== "menu" && (
               <button onClick={() => setView("menu")}>
                 <ArrowLeft size={16} />
@@ -96,7 +96,7 @@ export default function ClinicChatWidget() {
             <span className="text-sm font-medium">Clinic Assistant</span>
           </div>
 
-          <button onClick={() => setOpen(false)}>
+          <button onClick={() => setOpen(false)} className="cursor-pointer">
             <X size={16} />
           </button>
         </div>
@@ -113,11 +113,11 @@ export default function ClinicChatWidget() {
           {/* Menu */}
 
           {view === "menu" && (
-            <div className="flex flex-col gap-2 text-sm">
+            <div className="flex flex-col gap-2 text-sm ">
               <a
                 href="https://wa.me/919876543210?text=Hello%20I%20want%20to%20book%20appointment"
                 target="_blank"
-                className="flex items-center gap-2 p-2 rounded-md border hover:bg-gray-50"
+                className="flex cursor-pointer items-center gap-2 p-2 rounded-md border hover:bg-gray-50"
               >
                 <Phone size={16} />
                 WhatsApp Chat
@@ -125,7 +125,7 @@ export default function ClinicChatWidget() {
 
               <button
                 onClick={() => setView("doctors")}
-                className="flex items-center gap-2 p-2 rounded-md border hover:bg-gray-50"
+                className="flex cursor-pointer items-center gap-2 p-2 rounded-md border hover:bg-gray-50"
               >
                 <Stethoscope size={16} />
                 Doctor List
@@ -133,7 +133,7 @@ export default function ClinicChatWidget() {
 
               <button
                 onClick={() => setView("location")}
-                className="flex items-center gap-2 p-2 rounded-md border hover:bg-gray-50"
+                className="flex cursor-pointer items-center gap-2 p-2 rounded-md border hover:bg-gray-50"
               >
                 <MapPin size={16} />
                 Clinic Location
@@ -141,7 +141,7 @@ export default function ClinicChatWidget() {
 
               <button
                 onClick={() => setView("timing")}
-                className="flex items-center gap-2 p-2 rounded-md border hover:bg-gray-50"
+                className="flex cursor-pointer items-center gap-2 p-2 rounded-md border hover:bg-gray-50"
               >
                 <Clock size={16} />
                 Clinic Timing
