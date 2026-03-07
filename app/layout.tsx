@@ -24,8 +24,50 @@ export const metadata: Metadata = {
   title: "ClinicCare | Trusted Healthcare Services",
   description:
     "ClinicCare provides professional medical services, emergency care, and easy appointment booking via WhatsApp or Email.",
-};
 
+  manifest: "/manifest.json",
+
+  themeColor: "#0ea5e9",
+
+  icons: {
+    icon: [
+      { url: "/icons/favicon-16.png", sizes: "16x16", type: "image/png" },
+      { url: "/icons/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+
+    apple: [
+      { url: "/icons/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+
+    shortcut: ["/icons/icon-192.png"],
+  },
+
+  openGraph: {
+    title: "ClinicCare | Trusted Healthcare Services",
+    description:
+      "Professional healthcare services, modern diagnostics, and easy appointment booking.",
+    url: "https://clinic-web-app-nine.vercel.app",
+    siteName: "ClinicCare",
+    images: [
+      {
+        url: "/icons/icon-512.png",
+        width: 512,
+        height: 512,
+        alt: "ClinicCare",
+      },
+    ],
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "ClinicCare | Trusted Healthcare Services",
+    description:
+      "Trusted clinic services with easy booking and professional care.",
+    images: ["/icons/icon-512.png"],
+  },
+};
 export default function RootLayout({
   children,
 }: Readonly<{
