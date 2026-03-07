@@ -62,7 +62,7 @@ export default function ClinicChatWidget() {
 
       <button
         onClick={() => setOpen(!open)}
-        className="fixed bottom-22 cursor-pointer right-4 z-50 bg-green-600 text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition"
+        className="fixed bottom-22 md:bottom-6 lg:bottom-6 cursor-pointer right-4 z-50 bg-green-600 text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition"
       >
         <MessageCircle size={20} />
       </button>

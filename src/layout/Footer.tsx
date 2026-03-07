@@ -11,6 +11,7 @@ import {
   Microscope,
   Lock,
 } from "lucide-react";
+import FooterContact from "../shared/FooterContact";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -93,6 +94,7 @@ export default function Footer() {
                   </span>
                 </div>
               </div>
+              <FooterContact />
             </div>
 
             {/* Quick Links */}
