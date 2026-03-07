@@ -7,6 +7,7 @@ import Footer from "@/src/layout/Footer";
 import ContactDock from "@/src/layout/ContactDock";
 import ClinicHeader from "@/src/layout/ClinicHeader";
 import BookingDock from "@/src/booking/mobile/BookingDock";
+import ClinicChatbot from "@/src/bot/ClinicChatBot";
 // import BookingDock from "@/src/layout/BookingDock";
 
 const geistSans = Geist({
@@ -42,6 +43,7 @@ export default function RootLayout({
         <ContactDock />
         {/* <BookingDock /> */}
         <BookingDock />
+        <ClinicChatbot />
         <Footer />
       </body>
     </html>
