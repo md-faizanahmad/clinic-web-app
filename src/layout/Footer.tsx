@@ -25,7 +25,7 @@ export default function Footer() {
 
   return (
     <footer className="relative w-full overflow-hidden border-t border-slate-100 antialiased">
-      {/* 1. CINEMATIC BACKGROUND VIDEO LAYER */}
+      {/* Background Video */}
       <div className="absolute inset-0 z-0 bg-slate-900">
         <video
           autoPlay
@@ -39,14 +39,14 @@ export default function Footer() {
             type="video/mp4"
           />
         </video>
-        {/* Deep Clinical Gradient Overlay to ensure text readability */}
+
         <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/80 to-slate-900/40" />
       </div>
 
       <div className="relative z-10">
-        {/* 2. GLASS TRUST STRIP */}
+        {/* Trust Strip */}
         <div className="border-b border-white/5 backdrop-blur-md">
-          <div className="max-w-7xl mx-auto px-4 h-24 flex items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center">
             <div className="grid grid-cols-4 w-full divide-x divide-white/5">
               {trustBadges.map((badge) => (
                 <div
@@ -56,7 +56,7 @@ export default function Footer() {
                   <div className="text-sky-500/60 group-hover:text-sky-400 transition-colors">
                     {badge.icon}
                   </div>
-                  <span className="text-[9px] font-black uppercase tracking-tighter text-slate-400">
+                  <span className="text-[9px] font-black uppercase tracking-tight text-slate-400">
                     {badge.title}
                   </span>
                 </div>
@@ -65,21 +65,23 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* 3. MAIN FOOTER CONTENT */}
-        <div className="max-w-7xl mx-auto px-6 py-20">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-12">
-            {/* Brand Info */}
-            <div className="md:col-span-4 space-y-8">
+        {/* Main Footer */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+            {/* Brand Section */}
+            <div className="md:col-span-4 space-y-6">
               <div className="flex items-center gap-3">
-                <span className="text-3xl font-black text-white uppercase italic tracking-tighter">
+                <span className="text-3xl font-black text-white uppercase italic tracking-tight">
                   Clinic<span className="text-sky-500">Care.</span>
                 </span>
               </div>
-              <p className="text-xs font-bold text-slate-400 uppercase leading-relaxed tracking-tight max-w-xs">
+
+              <p className="text-xs font-semibold text-slate-400 uppercase leading-relaxed tracking-tight max-w-xs">
                 Setting the benchmark for clinical excellence in Bihar. Since
                 2016, our facility has integrated global medical protocols with
                 local compassion.
               </p>
+
               <div className="flex flex-col gap-4 pt-4 border-t border-white/5">
                 <div className="flex items-start gap-3">
                   <MapPin size={18} className="text-sky-500 shrink-0" />
@@ -87,6 +89,7 @@ export default function Footer() {
                     Bailey Road, Patna, Bihar 800001
                   </span>
                 </div>
+
                 <div className="flex items-center gap-3">
                   <Clock size={18} className="text-sky-500" />
                   <span className="text-[11px] font-black text-white uppercase tracking-tight">
@@ -94,15 +97,17 @@ export default function Footer() {
                   </span>
                 </div>
               </div>
+
               <FooterContact />
             </div>
 
-            {/* Quick Links */}
-            <div className="md:col-span-3">
-              <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 mb-8">
+            {/* Departments */}
+            <div className="md:col-span-4">
+              <h4 className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-500 mb-6">
                 Departments
               </h4>
-              <ul className="space-y-5">
+
+              <ul className="space-y-4">
                 {[
                   "Cardiology",
                   "Pediatrics",
@@ -125,11 +130,12 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Location & Map Shortcut */}
-            <div className="md:col-span-5 space-y-8">
-              <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 mb-8">
+            {/* Map */}
+            <div className="md:col-span-4 space-y-6">
+              <h4 className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-500 mb-6">
                 Location Search
               </h4>
+
               <div className="aspect-video w-full bg-slate-900 relative group overflow-hidden border border-white/5 shadow-2xl">
                 <Image
                   src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=1000"
@@ -137,6 +143,7 @@ export default function Footer() {
                   fill
                   className="object-cover opacity-40 grayscale group-hover:scale-110 transition-transform duration-700"
                 />
+
                 <a
                   href="#"
                   className="absolute inset-0 flex items-center justify-center bg-sky-950/20 group-hover:bg-sky-950/40 transition-colors"
@@ -149,32 +156,36 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* 4. BOTTOM BAR */}
-          <div className="mt-28 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
+          {/* Bottom Bar */}
+          <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
             <div className="space-y-1">
               <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest">
                 © {currentYear} CLINICCARE PATNA • REG NO: BIH/CL/2016/092
               </p>
+
               <p className="text-[8px] text-slate-600 uppercase tracking-widest leading-none">
                 Regulated by Bihar Health Department
               </p>
             </div>
-            <nav className="flex gap-10">
+
+            <nav className="flex gap-8">
               <Link
                 href="#"
                 className="text-[9px] font-black text-slate-400 uppercase tracking-widest hover:text-sky-500"
               >
                 Privacy
               </Link>
+
               <Link
                 href="#"
-                className="text-[9px] font-black text-slate-400 uppercase tracking-widest hover:text-sky-700"
+                className="text-[9px] font-black text-slate-400 uppercase tracking-widest hover:text-sky-500"
               >
                 Terms
               </Link>
+
               <Link
                 href="#"
-                className="text-[9px] font-black text-slate-400 uppercase tracking-widest hover:text-sky-700"
+                className="text-[9px] font-black text-slate-400 uppercase tracking-widest hover:text-sky-500"
               >
                 Admin
               </Link>
