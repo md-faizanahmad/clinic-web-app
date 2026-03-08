@@ -91,16 +91,22 @@ export default function ClinicChatWidget() {
     <>
       {/* Floating Button */}
 
-      <button
-        onClick={() => {
-          setOpen(!open);
-          setView("menu");
-        }}
-        aria-label="Open chat"
-        className="fixed bottom-22 md:bottom-6 right-4 z-50 bg-green-600 text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition"
-      >
-        <MessageCircle size={20} />
-      </button>
+      <div className="fixed bottom-22 md:bottom-6 right-4 z-50">
+        {/* Pulse Ring */}
+        <span className="absolute inset-0 rounded-full bg-green-500 opacity-70 animate-ping"></span>
+
+        {/* Button */}
+        <button
+          onClick={() => {
+            setOpen(!open);
+            setView("menu");
+          }}
+          aria-label="Open chat"
+          className="relative bg-green-600 text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition"
+        >
+          <MessageCircle size={20} />
+        </button>
+      </div>
 
       {/* Chatbox */}
 
