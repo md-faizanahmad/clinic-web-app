@@ -40,7 +40,21 @@ export default function ClinicChatWidget() {
 
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [open]);
+  const [showIcon, setShowIcon] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowIcon(true);
+      } else {
+        setShowIcon(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   const renderContent = () => {
     if (view === "location") {
       return (
@@ -91,21 +105,29 @@ export default function ClinicChatWidget() {
     <>
       {/* Floating Button */}
 
-      <div className="fixed bottom-22 md:bottom-6 right-4 z-50">
-        {/* Pulse Ring */}
-        <span className="absolute inset-0 rounded-full bg-green-500 opacity-70 animate-ping"></span>
+      <div
+        className={`fixed bottom-22 md:bottom-6 right-4 z-50 transition-all duration-500
+  ${showIcon ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"}
+  `}
+      >
+        <div className="relative">
+          {/* Pulse ring */}
+          {!open && (
+            <span className="absolute inset-0 rounded-full bg-green-500 opacity-70 animate-ping"></span>
+          )}
 
-        {/* Button */}
-        <button
-          onClick={() => {
-            setOpen(!open);
-            setView("menu");
-          }}
-          aria-label="Open chat"
-          className="relative bg-green-600 text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition"
-        >
-          <MessageCircle size={20} />
-        </button>
+          {/* Button */}
+          <button
+            onClick={() => {
+              setOpen(!open);
+              setView("menu");
+            }}
+            aria-label="Open chat"
+            className="relative bg-green-600 text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition"
+          >
+            <MessageCircle size={20} />
+          </button>
+        </div>
       </div>
 
       {/* Chatbox */}
