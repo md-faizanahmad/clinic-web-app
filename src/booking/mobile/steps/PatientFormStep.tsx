@@ -63,7 +63,7 @@ export default function PatientFormStep({
 
       <button
         onClick={() => setStep("SUCCESS")}
-        className="w-full bg-sky-700 text-white py-5 font-black text-xs uppercase tracking-widest flex items-center justify-center gap-2"
+        className="w-full bg-sky-700 cursor-pointer text-white py-5 font-black text-xs uppercase tracking-widest flex items-center justify-center gap-2"
       >
         Confirm Booking <Send size={16} />
       </button>
