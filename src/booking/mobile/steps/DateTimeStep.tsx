@@ -69,7 +69,7 @@ export default function DateTimeStep({
       <button
         disabled={!selectedDate || !selectedTime}
         onClick={handleSubmit}
-        className="w-full bg-slate-900 text-white py-5 font-black text-xs uppercase tracking-widest flex items-center justify-center gap-2 disabled:opacity-30"
+        className="w-full bg-slate-900 cursor-pointer text-white py-5 font-black text-xs uppercase tracking-widest flex items-center justify-center gap-2 disabled:opacity-30"
       >
         Next Step <ChevronRight size={16} />
       </button>
