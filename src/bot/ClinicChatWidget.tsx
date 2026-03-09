@@ -106,7 +106,7 @@ export default function ClinicChatWidget() {
       {/* Floating Button */}
 
       <div
-        className={`fixed bottom-22 md:bottom-6 right-4 z-50 transition-all duration-500
+        className={`fixed bottom-26 md:bottom-6 right-4 z-50 transition-all duration-500
   ${showIcon ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"}
   `}
       >

@@ -17,7 +17,7 @@ export default function DockHeader({ step, onClose }: Props): JSX.Element {
       </span>
 
       <button onClick={onClose} className="p-2">
-        <X size={20} />
+        <X size={20} className="cursor-pointer" />
       </button>
     </div>
   );

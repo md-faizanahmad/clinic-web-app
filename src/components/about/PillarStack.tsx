@@ -82,7 +82,7 @@ export default function PillarStack({ pillars }: Props) {
 
                 <div className="relative z-10 flex flex-col md:flex-row gap-8 md:items-start">
                   {/* 2. Professional Icon Wrapper */}
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <div className="w-16 h-16 bg-sky-500/10 flex items-center justify-center border border-sky-500/20">
                       <Icon size={28} className="text-sky-500" />
                     </div>
