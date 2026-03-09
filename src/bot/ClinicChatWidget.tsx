@@ -164,6 +164,7 @@ export default function ClinicChatWidget() {
               setView("menu");
             }}
             aria-label="Close chat"
+            className="cursor-pointer"
           >
             <X size={16} />
           </button>
