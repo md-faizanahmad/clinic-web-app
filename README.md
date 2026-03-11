@@ -1,7 +1,7 @@
 <h1 align="center">Clinic Wep App</h1>
 
 <p align="center">
-A responsive landing page designed to present a Clinic Web App.
+A responsive and Mobile First landing page designed to present a Clinic Web App.
 </p>
 
 <hr>
