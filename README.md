@@ -9,7 +9,7 @@ A responsive and Mobile First landing page designed to present a Clinic Web App.
 <h2>Overview</h2>
 
 <p>
-This project is a simple landing page created to introduce a clinic web application.
+This project is a simple landing page created to introduce a clinic Web application.
 The page highlights the main features and provides a clear way for visitors to
 learn about the service.
 </p>
