@@ -1,4 +1,4 @@
-<h1 align="center">Clinic Landing Wep App</h1>
+<h1 align="center">Clinic Wep App</h1>
 
 <p align="center">
 A responsive landing page designed to present a clinic web application.
