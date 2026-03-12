@@ -11,7 +11,7 @@ A responsive landing page designed to present a Clinic Web Application.
 <p>
 This project is a simple landing page created to introduce a clinic Web Application.
 The page highlights the main features and provides a clear way for visitors to
-learn about the services and book appointments hassle-free 
+learn about the services and book appointments hassle-free in mobile 
 </p>
 
 <hr>
