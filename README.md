@@ -25,6 +25,7 @@ learn about the services and book appointments hassle-free in mobile
 <li>Call-to-action section</li>
 <li>WhatsApp contact option</li>
 <li>Google Maps location integration</li>
+<li>Mobile First 
 </ul>
 
 <hr>
