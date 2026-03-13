@@ -1,4 +1,4 @@
-<h1 align="center">Clinic Web App with Appointment Booking As</h1>
+<h1 align="center">Clinic Web App with Appointment Booking As PWA</h1>
 
 <p align="center">
 A responsive landing page designed to present a Clinic Web Application.
