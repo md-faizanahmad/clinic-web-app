@@ -6,7 +6,7 @@ A responsive landing page designed to present a Clinic Web Application.
 
 <hr>
 
-<h2>Project</h2>
+<h2>Project Overview</h2>
 
 <p>
 This project is a landing page created to introduce a clinic Web Application.
