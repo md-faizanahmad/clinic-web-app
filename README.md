@@ -26,7 +26,7 @@ learn about the services and book appointments hassle-free in Mobile Navigation
 <li>WhatsApp contact option</li>
 <li>Google Maps location integration</li>
 <li>Mobile First Design </li>
-<li>Mobile Web </li>
+<li>Mobile Web Navigation </li>
 </ul>
 
 <hr>
