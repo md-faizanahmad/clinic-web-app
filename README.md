@@ -9,7 +9,7 @@ A responsive landing page designed to present a Clinic Web Application.
 <h2>Overview</h2>
 
 <p>
-This project is a simple landing page created to introduce a clinic Web Application.
+This project is a landing page created to introduce a clinic Web Application.
 The page highlights the main features and provides a clear way for visitors to
 learn about the services and book appointments hassle-free in mobile 
 </p>
