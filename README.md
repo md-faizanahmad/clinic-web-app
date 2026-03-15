@@ -3,7 +3,6 @@
 <p align="center">
 A responsive landing page designed to present a Clinic Web Application.
 </p>
-
 <hr>
 
 <h2>Project Overview</h2>
