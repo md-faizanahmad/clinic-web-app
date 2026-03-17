@@ -1,4 +1,4 @@
-<h1 align="center">Clinic Web App </h1>
+<h1 align="center">Clinic Web Application </h1>
 
 <p align="center">
 A responsive landing page designed to present a Clinic Web Application. Booking Appointment in Mobile 
