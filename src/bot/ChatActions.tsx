@@ -10,7 +10,6 @@ type Props = {
 export default function ChatActions({ onAction }: Props) {
   return (
     <div className="flex flex-wrap gap-2 mt-2">
-      ```
       <a
         href="https://wa.me/919876543210?text=Hello%20I%20want%20appointment"
         target="_blank"

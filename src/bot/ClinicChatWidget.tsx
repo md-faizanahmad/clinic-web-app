@@ -1,10 +1,31 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { MessageCircle, X } from "lucide-react";
-import ChatMessages from "./ChatMessages";
-import ChatActions from "./ChatActions";
-import type { Message, View, Doctor } from "./types";
+import {
+  MessageCircle,
+  X,
+  MapPin,
+  Clock,
+  Stethoscope,
+  Phone,
+} from "lucide-react";
+
+/* ---------------- TYPES ---------------- */
+
+type View = "menu" | "location" | "timing" | "doctors";
+
+type Message = {
+  id: number;
+  type: "bot" | "user";
+  text: string;
+};
+
+type Doctor = {
+  name: string;
+  role: string;
+};
+
+/* ---------------- DATA ---------------- */
 
 const doctors: Doctor[] = [
   { name: "Dr. Rahman", role: "General Physician" },
@@ -12,18 +33,27 @@ const doctors: Doctor[] = [
   { name: "Dr. Ali", role: "Pediatrician" },
 ];
 
+const initialMessages: Message[] = [
+  {
+    id: 1,
+    type: "bot",
+    text: "Hello 👋 How can we help you today?",
+  },
+];
+
+/* ---------------- COMPONENT ---------------- */
+
 export default function ClinicChatWidget() {
-  const [open, setOpen] = useState(false);
-  const [showIcon, setShowIcon] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
+  const [showIcon, setShowIcon] = useState<boolean>(false);
+  const [messages, setMessages] = useState<Message[]>(initialMessages);
 
-  const [messages, setMessages] = useState<Message[]>([
-    { id: 1, type: "bot", text: "Hello 👋 How can we help you today?" },
-  ]);
-
+  const messageId = useRef<number>(2);
   const boxRef = useRef<HTMLDivElement | null>(null);
-  const messageId = useRef(2);
+  const bottomRef = useRef<HTMLDivElement | null>(null);
 
-  /* Scroll trigger */
+  /* -------- Scroll trigger -------- */
+
   useEffect(() => {
     const handleScroll = () => {
       setShowIcon(window.scrollY > 300);
@@ -33,7 +63,8 @@ export default function ClinicChatWidget() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  /* Click outside */
+  /* -------- Click outside -------- */
+
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       if (boxRef.current && !boxRef.current.contains(e.target as Node)) {
@@ -45,9 +76,26 @@ export default function ClinicChatWidget() {
     return () => document.removeEventListener("mousedown", handleClick);
   }, [open]);
 
+  /* -------- Auto scroll -------- */
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+  /* -------- Add message -------- */
+
   const addMessage = (type: "bot" | "user", text: string) => {
     setMessages((prev) => [...prev, { id: messageId.current++, type, text }]);
   };
+
+  /* -------- Clear chat -------- */
+
+  const clearChat = () => {
+    setMessages(initialMessages);
+    messageId.current = 2;
+  };
+
+  /* -------- Actions -------- */
 
   const handleAction = (view: View) => {
     if (view === "location") {
@@ -71,12 +119,15 @@ export default function ClinicChatWidget() {
 
   return (
     <>
-      {/* Floating Button */}
+      {/* ---------------- FLOATING BUTTON ---------------- */}
 
       <div
-        className={`fixed bottom-24 right-4 z-50 transition-all duration-500
-    ${showIcon ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"}
-  `}
+        className={`fixed bottom-10 right-8 z-50 transition-all duration-500
+    ${
+      showIcon
+        ? "opacity-100 translate-y-0"
+        : "opacity-0 translate-y-10 pointer-events-none"
+    }`}
       >
         <div className="relative">
           {!open && (
@@ -85,22 +136,25 @@ export default function ClinicChatWidget() {
 
           <button
             onClick={() => setOpen((prev) => !prev)}
-            className="relative bg-green-600 text-white p-4 rounded-full shadow-lg"
+            className="relative cursor-pointer bg-green-600 text-white p-4 rounded-full shadow-lg"
           >
             <MessageCircle size={20} />
           </button>
         </div>
       </div>
 
-      {/* Chat Box */}
+      {/* ---------------- CHAT BOX ---------------- */}
 
       <div
         ref={boxRef}
         className={`fixed bottom-20 right-4 z-50 w-[90%] max-w-xs bg-white border rounded-xl shadow-xl transition-all duration-300
-    ${open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6 pointer-events-none"}
-  `}
+    ${
+      open
+        ? "opacity-100 translate-y-0"
+        : "opacity-0 translate-y-6 pointer-events-none"
+    }`}
       >
-        {/* Header */}
+        {/* -------- Header -------- */}
 
         <div className="flex items-center justify-between px-3 py-2 border-b">
           <div className="flex items-center gap-2">
@@ -108,17 +162,82 @@ export default function ClinicChatWidget() {
             <span className="text-sm font-medium">ClinicCare</span>
           </div>
 
-          <button onClick={() => setOpen(false)}>
-            <X size={16} />
-          </button>
+          <div className="flex items-center gap-2">
+            {messages.length > 1 && (
+              <button
+                onClick={clearChat}
+                className="text-xs text-gray-500 hover:text-red-500"
+              >
+                Clear
+              </button>
+            )}
+
+            <button onClick={() => setOpen(false)}>
+              <X size={16} />
+            </button>
+          </div>
         </div>
 
-        {/* Body */}
+        {/* -------- Body -------- */}
 
         <div className="p-3">
-          <ChatMessages messages={messages} />
+          {/* Messages */}
 
-          <ChatActions onAction={handleAction} />
+          <div className="flex flex-col gap-1.5 max-h-64 overflow-y-auto pr-1">
+            {messages.map((msg) => (
+              <div
+                key={msg.id}
+                className={`text-[13px] px-3 py-2 rounded-lg max-w-[80%]
+              ${
+                msg.type === "bot"
+                  ? "bg-gray-100 self-start"
+                  : "bg-sky-600 text-white self-end"
+              }`}
+              >
+                {msg.text}
+              </div>
+            ))}
+
+            <div ref={bottomRef} />
+          </div>
+
+          {/* Actions */}
+
+          <div className="flex flex-wrap gap-2 mt-3">
+            <a
+              href="https://wa.me/919876543210?text=Hello%20I%20want%20appointment"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 px-3 py-1 rounded-full bg-green-600 text-white text-xs"
+            >
+              <Phone size={14} />
+              WhatsApp
+            </a>
+
+            <button
+              onClick={() => handleAction("doctors")}
+              className="flex items-center gap-1 px-3 py-1 rounded-full border text-xs"
+            >
+              <Stethoscope size={14} />
+              Doctors
+            </button>
+
+            <button
+              onClick={() => handleAction("location")}
+              className="flex items-center gap-1 px-3 py-1 rounded-full border text-xs"
+            >
+              <MapPin size={14} />
+              Location
+            </button>
+
+            <button
+              onClick={() => handleAction("timing")}
+              className="flex items-center gap-1 px-3 py-1 rounded-full border text-xs"
+            >
+              <Clock size={14} />
+              Timing
+            </button>
+          </div>
         </div>
       </div>
     </>
