@@ -203,7 +203,7 @@ export default function ClinicChatWidget() {
 
           {/* Actions */}
 
-          <div className="flex flex-wrap gap-2 mt-3">
+          <div className="flex cursor-pointer flex-wrap gap-2 mt-3">
             <a
               href="https://wa.me/919876543210?text=Hello%20I%20want%20appointment"
               target="_blank"
