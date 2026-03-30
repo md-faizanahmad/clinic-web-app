@@ -64,7 +64,7 @@ export default function ServiceGrid() {
             <Link
               key={service.title}
               href={service.href}
-              className="group relative md:w-55 md:h-75 aspect-4/5 shrink-0 w-280px md:w-220px h-380px md:h-320px rounded-[3rem] overflow-hidden shadow-2xl snap-center transition-all duration-500 md:hover:-translate-y-2 active:scale-95"
+              className="group relative md:w-55 md:h-75 aspect-4/5 shrink-0 w-280px md:w-220px h-380px md:h-320px rounded-[3rem] overflow-hidden  snap-center transition-all duration-500 md:hover:-translate-y-2 active:scale-95"
             >
               {/* 1. Background Image */}
               <div className="absolute inset-0 z-0">
@@ -73,7 +73,7 @@ export default function ServiceGrid() {
                   alt={service.title}
                   fill
                   sizes="(max-width: 768px) 280px, 220px"
-                  className="object-cover md:group-hover:scale-110 transition-transform duration-700"
+                  className="object-cover md:group-hover:scale-110 transition-transform duration-700 "
                 />
                 {/* Overlay logic: Always visible on mobile, Hover-only on Desktop */}
                 <div className="absolute inset-0 bg-slate-950/70 z-10 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500" />

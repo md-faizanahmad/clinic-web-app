@@ -166,13 +166,13 @@ export default function ClinicChatWidget() {
             {messages.length > 1 && (
               <button
                 onClick={clearChat}
-                className="text-xs text-gray-500 hover:text-red-500"
+                className="text-xs bg-black p-1 rounded-xs text-white hover:text-red-500 cursor-pointer"
               >
                 Clear
               </button>
             )}
 
-            <button onClick={() => setOpen(false)}>
+            <button className="cursor-pointer" onClick={() => setOpen(false)}>
               <X size={16} />
             </button>
           </div>
