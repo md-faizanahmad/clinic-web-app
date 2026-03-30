@@ -208,7 +208,7 @@ export default function ClinicChatWidget() {
               href="https://wa.me/919876543210?text=Hello%20I%20want%20appointment"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 px-3 py-1 rounded-full bg-green-600 text-white text-xs"
+              className="flex cursor-pointer items-center gap-1 px-3 py-1 rounded-full bg-green-600 text-white text-xs"
             >
               <Phone size={14} />
               WhatsApp
@@ -216,7 +216,7 @@ export default function ClinicChatWidget() {
 
             <button
               onClick={() => handleAction("doctors")}
-              className="flex items-center gap-1 px-3 py-1 rounded-full border text-xs"
+              className="flex cursor-pointer items-center gap-1 px-3 py-1 rounded-full border text-xs"
             >
               <Stethoscope size={14} />
               Doctors
@@ -224,7 +224,7 @@ export default function ClinicChatWidget() {
 
             <button
               onClick={() => handleAction("location")}
-              className="flex items-center gap-1 px-3 py-1 rounded-full border text-xs"
+              className="flex cursor-pointer items-center gap-1 px-3 py-1 rounded-full border text-xs"
             >
               <MapPin size={14} />
               Location
@@ -232,7 +232,7 @@ export default function ClinicChatWidget() {
 
             <button
               onClick={() => handleAction("timing")}
-              className="flex items-center gap-1 px-3 py-1 rounded-full border text-xs"
+              className="flex  cursor-pointer items-center gap-1 px-3 py-1 rounded-full border text-xs"
             >
               <Clock size={14} />
               Timing
