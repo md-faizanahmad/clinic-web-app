@@ -1,223 +1,146 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import {
-  MessageCircle,
-  MapPin,
-  Clock,
-  Stethoscope,
-  Phone,
-  ArrowLeft,
-  X,
-} from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { MessageCircle, X } from "lucide-react";
+import ChatMessages from "./ChatMessages";
+import ChatActions from "./ChatActions";
+import type { Message, View, Doctor } from "./types";
 
-type View = "menu" | "location" | "timing" | "doctors";
-
-const doctors = [
-  { name: "Dr. Rahman", role: "General Physician" },
-  { name: "Dr. Khan", role: "Dentist" },
-  { name: "Dr. Ali", role: "Pediatrician" },
+const doctors: Doctor[] = [
+{ name: "Dr. Rahman", role: "General Physician" },
+{ name: "Dr. Khan", role: "Dentist" },
+{ name: "Dr. Ali", role: "Pediatrician" },
 ];
 
 export default function ClinicChatWidget() {
-  const [open, setOpen] = useState(false);
-  const [view, setView] = useState<View>("menu");
+const [open, setOpen] = useState(false);
+const [showIcon, setShowIcon] = useState(false);
 
-  const boxRef = useRef<HTMLDivElement>(null);
+const [messages, setMessages] = useState<Message[]>([
+{ id: 1, type: "bot", text: "Hello 👋 How can we help you today?" },
+]);
 
-  /* Close when clicking outside */
-  useEffect(() => {
-    function handleClickOutside(e: MouseEvent) {
-      if (boxRef.current && !boxRef.current.contains(e.target as Node)) {
-        setOpen(false);
-        setView("menu");
-      }
-    }
+const boxRef = useRef<HTMLDivElement | null>(null);
+const messageId = useRef(2);
 
-    if (open) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
+/* Scroll trigger */
+useEffect(() => {
+const handleScroll = () => {
+setShowIcon(window.scrollY > 300);
+};
 
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [open]);
-  const [showIcon, setShowIcon] = useState(false);
+```
+window.addEventListener("scroll", handleScroll);
+return () => window.removeEventListener("scroll", handleScroll);
+```
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 300) {
-        setShowIcon(true);
-      } else {
-        setShowIcon(false);
-      }
-    };
+}, []);
 
-    window.addEventListener("scroll", handleScroll);
+/* Click outside */
+useEffect(() => {
+const handleClick = (e: MouseEvent) => {
+if (boxRef.current && !boxRef.current.contains(e.target as Node)) {
+setOpen(false);
+}
+};
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-  const renderContent = () => {
-    if (view === "location") {
-      return (
-        <a
-          href="https://maps.google.com/?q=Patna,Bihar"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block bg-gray-100 hover:bg-gray-200 p-3 rounded-lg text-sm"
-        >
-          📍 Clinic Location
-          <br />
-          Patna, Bihar
-          <br />
-          <span className="text-sky-600 text-xs">Open in Google Maps</span>
-        </a>
-      );
-    }
+```
+if (open) document.addEventListener("mousedown", handleClick);
+return () => document.removeEventListener("mousedown", handleClick);
+```
 
-    if (view === "timing") {
-      return (
-        <div className="bg-gray-100 p-3 rounded-lg text-sm">
-          🕒 Clinic Timing
-          <br />
-          9 AM – 8 PM
-          <br />
-          Monday – Saturday
-        </div>
-      );
-    }
+}, [open]);
 
-    if (view === "doctors") {
-      return (
-        <div className="space-y-2">
-          {doctors.map((doc) => (
-            <div key={doc.name} className="bg-gray-100 p-3 rounded-lg text-sm">
-              <p className="font-medium">{doc.name}</p>
-              <p className="text-gray-600 text-xs">{doc.role}</p>
-            </div>
-          ))}
-        </div>
-      );
-    }
+const addMessage = (type: "bot" | "user", text: string) => {
+setMessages((prev) => [
+...prev,
+{ id: messageId.current++, type, text },
+]);
+};
 
-    return null;
-  };
+const handleAction = (view: View) => {
+if (view === "location") {
+addMessage("user", "Clinic Location");
+addMessage("bot", "📍 Patna, Bihar\nOpen in Google Maps");
+}
 
-  return (
-    <>
-      {/* Floating Button */}
+```
+if (view === "timing") {
+  addMessage("user", "Clinic Timing");
+  addMessage("bot", "🕒 9 AM – 8 PM\nMonday – Saturday");
+}
 
-      <div
-        className={`fixed bottom-26 md:bottom-6 right-4 z-50 transition-all duration-500
-  ${showIcon ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"}
+if (view === "doctors") {
+  addMessage("user", "Doctor List");
+
+  doctors.forEach((doc) => {
+    addMessage("bot", `${doc.name} — ${doc.role}`);
+  });
+}
+```
+
+};
+
+return (
+<>
+{/* Floating Button */}
+
+```
+  <div
+    className={`fixed bottom-24 right-4 z-50 transition-all duration-500
+    ${showIcon ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"}
   `}
-      >
-        <div className="relative">
-          {/* Pulse ring */}
-          {!open && (
-            <span className="absolute inset-0 rounded-full bg-green-500 opacity-70 animate-ping"></span>
-          )}
+  >
+    <div className="relative">
 
-          {/* Button */}
-          <button
-            onClick={() => {
-              setOpen(!open);
-              setView("menu");
-            }}
-            aria-label="Open chat"
-            className="relative bg-green-600 text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition"
-          >
-            <MessageCircle size={20} />
-          </button>
-        </div>
+      {!open && (
+        <span className="absolute inset-0 rounded-full bg-green-500 opacity-70 animate-ping" />
+      )}
+
+      <button
+        onClick={() => setOpen((prev) => !prev)}
+        className="relative bg-green-600 text-white p-4 rounded-full shadow-lg"
+      >
+        <MessageCircle size={20} />
+      </button>
+    </div>
+  </div>
+
+  {/* Chat Box */}
+
+  <div
+    ref={boxRef}
+    className={`fixed bottom-20 right-4 z-50 w-[90%] max-w-xs bg-white border rounded-xl shadow-xl transition-all duration-300
+    ${open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6 pointer-events-none"}
+  `}
+  >
+    {/* Header */}
+
+    <div className="flex items-center justify-between px-3 py-2 border-b">
+
+      <div className="flex items-center gap-2">
+        <div className="w-6 h-6 bg-green-600 rounded-full" />
+        <span className="text-sm font-medium">ClinicCare</span>
       </div>
 
-      {/* Chatbox */}
+      <button onClick={() => setOpen(false)}>
+        <X size={16} />
+      </button>
 
-      <div
-        ref={boxRef}
-        className={`fixed bottom-20 right-4 z-50 w-[90%] max-w-xs bg-white border rounded-xl shadow-xl transform transition-all duration-300
-        ${
-          open
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-6 pointer-events-none"
-        }`}
-      >
-        {/* Header */}
+    </div>
 
-        <div className="flex items-center justify-between border-b px-3 py-2">
-          <div className="flex items-center gap-2">
-            {view !== "menu" && (
-              <button
-                onClick={() => setView("menu")}
-                aria-label="Back"
-                className="p-1"
-              >
-                <ArrowLeft size={16} />
-              </button>
-            )}
+    {/* Body */}
 
-            <span className="text-sm font-medium">Clinic Assistant</span>
-          </div>
+    <div className="p-3">
 
-          <button
-            onClick={() => {
-              setOpen(false);
-              setView("menu");
-            }}
-            aria-label="Close chat"
-            className="cursor-pointer"
-          >
-            <X size={16} />
-          </button>
-        </div>
+      <ChatMessages messages={messages} />
 
-        {/* Body */}
+      <ChatActions onAction={handleAction} />
 
-        <div className="p-3 space-y-3">
-          <div className="bg-gray-100 text-sm p-2 rounded-lg">
-            Hello 👋 How can we help?
-          </div>
+    </div>
+  </div>
+</>
 
-          {view === "menu" && (
-            <div className="flex flex-col gap-2 text-sm">
-              <a
-                href="https://wa.me/919876543210?text=Hello%20I%20want%20to%20book%20appointment"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 p-2 rounded-md border hover:bg-gray-50"
-              >
-                <Phone size={16} />
-                WhatsApp Chat
-              </a>
 
-              <button
-                onClick={() => setView("doctors")}
-                className="flex items-center gap-2 p-2 rounded-md border hover:bg-gray-50"
-              >
-                <Stethoscope size={16} />
-                Doctor List
-              </button>
-
-              <button
-                onClick={() => setView("location")}
-                className="flex items-center gap-2 p-2 rounded-md border hover:bg-gray-50"
-              >
-                <MapPin size={16} />
-                Clinic Location
-              </button>
-
-              <button
-                onClick={() => setView("timing")}
-                className="flex items-center gap-2 p-2 rounded-md border hover:bg-gray-50"
-              >
-                <Clock size={16} />
-                Clinic Timing
-              </button>
-            </div>
-          )}
-
-          {view !== "menu" && renderContent()}
-        </div>
-      </div>
-    </>
-  );
+);
 }
