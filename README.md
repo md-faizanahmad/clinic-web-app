@@ -1,17 +1,16 @@
-<h1 align="center">Clinic Landing Page</h1>
+<h1 align="center">Clinic Appointment Booking Web Application </h1>
 
 <p align="center">
-A responsive landing page designed to present a clinic web application.
+A responsive landing page designed to present a Clinic Web Application. Booking Appointment in Mobile.
 </p>
-
 <hr>
 
-<h2>Overview</h2>
+<h2>Project Overview</h2>
 
 <p>
-This project is a simple landing page created to introduce a clinic web application.
+This project is a landing page created to introduce a clinic Web Application.
 The page highlights the main features and provides a clear way for visitors to
-learn about the service.
+learn about the services and book appointments 
 </p>
 
 <hr>
@@ -25,6 +24,8 @@ learn about the service.
 <li>Call-to-action section</li>
 <li>WhatsApp contact option</li>
 <li>Google Maps location integration</li>
+<li>Mobile First Design </li>
+<li>Mobile Web Navigation </li>
 </ul>
 
 <hr>
